@@ -1,0 +1,498 @@
+2023-12-11 15:00:35,242 - BaseDataProcessor.py[line:63] - WARNING: cant find raw_data.json
+2023-12-11 15:00:35,242 - BaseDataProcessor.py[line:66] - WARNING: cant find case_names file, return empty meta
+2023-12-11 15:00:35,242 - BaseDataProcessor.py[line:85] - WARNING: cant find task_infos.json
+2023-12-11 15:02:09,597 - BaseDataProcessor.py[line:63] - WARNING: cant find raw_data.json
+2023-12-11 15:02:09,597 - BaseDataProcessor.py[line:66] - WARNING: cant find case_names file, return empty meta
+2023-12-11 15:02:09,597 - BaseDataProcessor.py[line:85] - WARNING: cant find task_infos.json
+2023-12-11 15:02:09,597 - video2img.py[line:86] - INFO: start process 1/47
+2023-12-11 15:02:09,629 - video2img.py[line:86] - INFO: start process 2/47
+2023-12-11 15:03:09,802 - BaseDataProcessor.py[line:63] - WARNING: cant find raw_data.json
+2023-12-11 15:03:09,802 - BaseDataProcessor.py[line:66] - WARNING: cant find case_names file, return empty meta
+2023-12-11 15:03:09,802 - BaseDataProcessor.py[line:85] - WARNING: cant find task_infos.json
+2023-12-11 15:03:09,802 - video2img.py[line:86] - INFO: start process 1/47
+2023-12-11 15:03:09,803 - video2img.py[line:86] - INFO: start process 2/47
+2023-12-11 16:03:02,306 - video2img.py[line:86] - INFO: start process 1/47
+2023-12-11 16:03:02,309 - video2img.py[line:86] - INFO: start process 2/47
+2023-12-11 16:05:06,059 - video2img.py[line:87] - INFO: start process 1/47
+2023-12-11 16:05:06,060 - video2img.py[line:41] - INFO: rval: False
+2023-12-11 16:05:06,060 - video2img.py[line:87] - INFO: start process 2/47
+2023-12-11 16:05:06,061 - video2img.py[line:41] - INFO: rval: False
+2023-12-11 16:06:22,504 - video2img.py[line:88] - INFO: start process 1/47
+2023-12-11 16:06:22,504 - video2img.py[line:35] - INFO: video_path: TomatoSoupCan#s3.mp4
+2023-12-11 16:06:22,505 - video2img.py[line:42] - INFO: rval: False
+2023-12-11 16:06:22,505 - video2img.py[line:88] - INFO: start process 2/47
+2023-12-11 16:06:22,505 - video2img.py[line:35] - INFO: video_path: 044_flat_screwdriver#s3.mp4
+2023-12-11 16:06:22,506 - video2img.py[line:42] - INFO: rval: False
+2023-12-11 16:08:45,953 - video2img.py[line:88] - INFO: start process 1/2
+2023-12-11 16:08:45,953 - video2img.py[line:35] - INFO: video_path: TomatoSoupCan#s3.mp4
+2023-12-11 16:08:45,954 - video2img.py[line:42] - INFO: rval: False
+2023-12-11 16:08:45,954 - video2img.py[line:88] - INFO: start process 2/2
+2023-12-11 16:08:45,954 - video2img.py[line:35] - INFO: video_path: 044_flat_screwdriver#s3.mp4
+2023-12-11 16:08:45,954 - video2img.py[line:42] - INFO: rval: False
+2023-12-11 16:11:57,267 - video2img.py[line:89] - INFO: start process 1/2
+2023-12-11 16:11:57,268 - video2img.py[line:35] - INFO: video_path: TomatoSoupCan#s3.mp4
+2023-12-11 16:11:57,268 - video2img.py[line:36] - INFO: video_path: /home/jackeyjin/data_helper/datasets/demo_video/TomatoSoupCan#s3.mp4
+2023-12-11 16:11:57,325 - video2img.py[line:43] - INFO: rval: True
+2023-12-11 16:15:48,604 - video2img.py[line:89] - INFO: start process 1/2
+2023-12-11 16:15:48,604 - video2img.py[line:35] - INFO: video_path: /home/jackeyjin/data_helper/datasets/demo_video/TomatoSoupCan#s3.mp4
+2023-12-11 16:15:48,605 - video2img.py[line:43] - INFO: rval: False
+2023-12-11 16:15:48,605 - video2img.py[line:89] - INFO: start process 2/2
+2023-12-11 16:15:48,605 - video2img.py[line:35] - INFO: video_path: /home/jackeyjin/data_helper/datasets/demo_video/044_flat_screwdriver#s3.mp4
+2023-12-11 16:15:48,606 - video2img.py[line:43] - INFO: rval: False
+2023-12-11 16:15:58,349 - video2img.py[line:89] - INFO: start process 1/2
+2023-12-11 16:15:58,350 - video2img.py[line:35] - INFO: video_path: /home/jackeyjin/data_helper/datasets/demo_video/TomatoSoupCan#s3.mp4
+2023-12-11 16:15:58,350 - video2img.py[line:43] - INFO: rval: False
+2023-12-11 16:15:58,351 - video2img.py[line:89] - INFO: start process 2/2
+2023-12-11 16:15:58,351 - video2img.py[line:35] - INFO: video_path: /home/jackeyjin/data_helper/datasets/demo_video/044_flat_screwdriver#s3.mp4
+2023-12-11 16:15:58,351 - video2img.py[line:43] - INFO: rval: False
+2023-12-11 16:16:21,907 - video2img.py[line:89] - INFO: start process 1/2
+2023-12-11 16:16:21,907 - video2img.py[line:35] - INFO: video_path: /home/jackeyjin/data_helper/datasets/demo_video/TomatoSoupCan#s3.mp4
+2023-12-11 16:18:50,332 - video2img.py[line:89] - INFO: start process 1/2
+2023-12-11 16:18:50,333 - video2img.py[line:35] - INFO: video_path: /home/jackeyjin/data_helper/datasets/demo_video/TomatoSoupCan#s3.mp4
+2023-12-11 16:18:50,336 - video2img.py[line:43] - INFO: rval: True
+2023-12-11 16:23:33,466 - video2img.py[line:87] - INFO: start process 1/2
+2023-12-11 16:23:33,470 - video2img.py[line:41] - INFO: rval: True
+2023-12-11 16:23:33,501 - video2img.py[line:54] - INFO: Start split 0/101.0, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/.0.jpg
+2023-12-11 16:23:33,522 - video2img.py[line:54] - INFO: Start split 3/101.0, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/...jpg
+2023-12-11 16:26:59,577 - video2img.py[line:88] - INFO: start process 1/2
+2023-12-11 16:26:59,595 - video2img.py[line:41] - INFO: rval: True
+2023-12-11 16:26:59,849 - video2img.py[line:49] - INFO: timestamp 0.0
+2023-12-11 16:26:59,849 - video2img.py[line:55] - INFO: Start split 0/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/.0.jpg
+2023-12-11 16:26:59,860 - video2img.py[line:49] - INFO: timestamp 100.0
+2023-12-11 16:26:59,861 - video2img.py[line:55] - INFO: Start split 1/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/...jpg
+2023-12-11 16:26:59,884 - video2img.py[line:49] - INFO: timestamp 200.0
+2023-12-11 17:44:03,058 - video2img.py[line:88] - INFO: start process 1/2
+2023-12-11 17:44:03,066 - video2img.py[line:44] - INFO: rval: True
+2023-12-11 17:44:03,219 - video2img.py[line:52] - INFO: timestamp 1702287843.2198091
+2023-12-11 17:44:03,220 - video2img.py[line:55] - INFO: Start split 0/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.2198091.jpg
+2023-12-11 17:44:03,252 - video2img.py[line:52] - INFO: timestamp 1702287843.2521179
+2023-12-11 17:44:03,252 - video2img.py[line:55] - INFO: Start split 1/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.2521179.jpg
+2023-12-11 17:44:03,280 - video2img.py[line:52] - INFO: timestamp 1702287843.2800584
+2023-12-11 17:44:03,280 - video2img.py[line:55] - INFO: Start split 2/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.2800584.jpg
+2023-12-11 17:44:03,290 - video2img.py[line:52] - INFO: timestamp 1702287843.2905385
+2023-12-11 17:44:03,290 - video2img.py[line:55] - INFO: Start split 3/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.2905385.jpg
+2023-12-11 17:44:03,302 - video2img.py[line:52] - INFO: timestamp 1702287843.3023546
+2023-12-11 17:44:03,302 - video2img.py[line:55] - INFO: Start split 4/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3023546.jpg
+2023-12-11 17:44:03,310 - video2img.py[line:52] - INFO: timestamp 1702287843.3103926
+2023-12-11 17:44:03,310 - video2img.py[line:55] - INFO: Start split 5/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3103926.jpg
+2023-12-11 17:44:03,328 - video2img.py[line:52] - INFO: timestamp 1702287843.3281875
+2023-12-11 17:44:03,328 - video2img.py[line:55] - INFO: Start split 6/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3281875.jpg
+2023-12-11 17:44:03,337 - video2img.py[line:52] - INFO: timestamp 1702287843.3373699
+2023-12-11 17:44:03,338 - video2img.py[line:55] - INFO: Start split 7/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3373699.jpg
+2023-12-11 17:44:03,350 - video2img.py[line:52] - INFO: timestamp 1702287843.3502944
+2023-12-11 17:44:03,350 - video2img.py[line:55] - INFO: Start split 8/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3502944.jpg
+2023-12-11 17:44:03,358 - video2img.py[line:52] - INFO: timestamp 1702287843.3580801
+2023-12-11 17:44:03,358 - video2img.py[line:55] - INFO: Start split 9/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3580801.jpg
+2023-12-11 17:44:03,365 - video2img.py[line:52] - INFO: timestamp 1702287843.3650866
+2023-12-11 17:44:03,365 - video2img.py[line:55] - INFO: Start split 10/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3650866.jpg
+2023-12-11 17:44:03,367 - video2img.py[line:52] - INFO: timestamp 1702287843.3675482
+2023-12-11 17:44:03,367 - video2img.py[line:55] - INFO: Start split 11/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3675482.jpg
+2023-12-11 17:44:03,370 - video2img.py[line:52] - INFO: timestamp 1702287843.3702769
+2023-12-11 17:44:03,370 - video2img.py[line:55] - INFO: Start split 12/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3702769.jpg
+2023-12-11 17:44:03,373 - video2img.py[line:52] - INFO: timestamp 1702287843.3730462
+2023-12-11 17:44:03,373 - video2img.py[line:55] - INFO: Start split 13/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3730462.jpg
+2023-12-11 17:44:03,377 - video2img.py[line:52] - INFO: timestamp 1702287843.3770010
+2023-12-11 17:44:03,377 - video2img.py[line:55] - INFO: Start split 14/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3770010.jpg
+2023-12-11 17:44:03,381 - video2img.py[line:52] - INFO: timestamp 1702287843.3816147
+2023-12-11 17:44:03,382 - video2img.py[line:55] - INFO: Start split 15/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3816147.jpg
+2023-12-11 17:44:03,384 - video2img.py[line:52] - INFO: timestamp 1702287843.3849077
+2023-12-11 17:44:03,385 - video2img.py[line:55] - INFO: Start split 16/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3849077.jpg
+2023-12-11 17:44:03,388 - video2img.py[line:52] - INFO: timestamp 1702287843.3879974
+2023-12-11 17:44:03,388 - video2img.py[line:55] - INFO: Start split 17/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3879974.jpg
+2023-12-11 17:44:03,392 - video2img.py[line:52] - INFO: timestamp 1702287843.3920124
+2023-12-11 17:44:03,392 - video2img.py[line:55] - INFO: Start split 18/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3920124.jpg
+2023-12-11 17:44:03,394 - video2img.py[line:52] - INFO: timestamp 1702287843.3949423
+2023-12-11 17:44:03,395 - video2img.py[line:55] - INFO: Start split 19/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3949423.jpg
+2023-12-11 17:44:03,396 - video2img.py[line:52] - INFO: timestamp 1702287843.3969371
+2023-12-11 17:44:03,397 - video2img.py[line:55] - INFO: Start split 20/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.3969371.jpg
+2023-12-11 17:44:03,401 - video2img.py[line:52] - INFO: timestamp 1702287843.4013238
+2023-12-11 17:44:03,401 - video2img.py[line:55] - INFO: Start split 21/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4013238.jpg
+2023-12-11 17:44:03,405 - video2img.py[line:52] - INFO: timestamp 1702287843.4051974
+2023-12-11 17:44:03,405 - video2img.py[line:55] - INFO: Start split 22/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4051974.jpg
+2023-12-11 17:44:03,408 - video2img.py[line:52] - INFO: timestamp 1702287843.4086537
+2023-12-11 17:44:03,408 - video2img.py[line:55] - INFO: Start split 23/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4086537.jpg
+2023-12-11 17:44:03,412 - video2img.py[line:52] - INFO: timestamp 1702287843.4126081
+2023-12-11 17:44:03,412 - video2img.py[line:55] - INFO: Start split 24/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4126081.jpg
+2023-12-11 17:44:03,415 - video2img.py[line:52] - INFO: timestamp 1702287843.4151139
+2023-12-11 17:44:03,415 - video2img.py[line:55] - INFO: Start split 25/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4151139.jpg
+2023-12-11 17:44:03,417 - video2img.py[line:52] - INFO: timestamp 1702287843.4176404
+2023-12-11 17:44:03,417 - video2img.py[line:55] - INFO: Start split 26/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4176404.jpg
+2023-12-11 17:44:03,420 - video2img.py[line:52] - INFO: timestamp 1702287843.4204552
+2023-12-11 17:44:03,420 - video2img.py[line:55] - INFO: Start split 27/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4204552.jpg
+2023-12-11 17:44:03,423 - video2img.py[line:52] - INFO: timestamp 1702287843.4230866
+2023-12-11 17:44:03,423 - video2img.py[line:55] - INFO: Start split 28/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4230866.jpg
+2023-12-11 17:44:03,425 - video2img.py[line:52] - INFO: timestamp 1702287843.4257989
+2023-12-11 17:44:03,426 - video2img.py[line:55] - INFO: Start split 29/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4257989.jpg
+2023-12-11 17:44:03,429 - video2img.py[line:52] - INFO: timestamp 1702287843.4298561
+2023-12-11 17:44:03,430 - video2img.py[line:55] - INFO: Start split 30/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4298561.jpg
+2023-12-11 17:44:03,432 - video2img.py[line:52] - INFO: timestamp 1702287843.4324856
+2023-12-11 17:44:03,432 - video2img.py[line:55] - INFO: Start split 31/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4324856.jpg
+2023-12-11 17:44:03,435 - video2img.py[line:52] - INFO: timestamp 1702287843.4352679
+2023-12-11 17:44:03,435 - video2img.py[line:55] - INFO: Start split 32/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4352679.jpg
+2023-12-11 17:44:03,437 - video2img.py[line:52] - INFO: timestamp 1702287843.4372919
+2023-12-11 17:44:03,437 - video2img.py[line:55] - INFO: Start split 33/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan#s3.mp4/1702287843.4372919.jpg
+2023-12-11 17:44:03,442 - video2img.py[line:88] - INFO: start process 2/2
+2023-12-11 17:44:03,445 - video2img.py[line:44] - INFO: rval: True
+2023-12-11 17:44:03,463 - video2img.py[line:52] - INFO: timestamp 1702287843.4631271
+2023-12-11 17:44:03,463 - video2img.py[line:55] - INFO: Start split 0/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.4631271.jpg
+2023-12-11 17:44:03,477 - video2img.py[line:52] - INFO: timestamp 1702287843.4775887
+2023-12-11 17:44:03,478 - video2img.py[line:55] - INFO: Start split 1/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.4775887.jpg
+2023-12-11 17:44:03,482 - video2img.py[line:52] - INFO: timestamp 1702287843.4828560
+2023-12-11 17:44:03,483 - video2img.py[line:55] - INFO: Start split 2/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.4828560.jpg
+2023-12-11 17:44:03,490 - video2img.py[line:52] - INFO: timestamp 1702287843.4903088
+2023-12-11 17:44:03,490 - video2img.py[line:55] - INFO: Start split 3/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.4903088.jpg
+2023-12-11 17:44:03,498 - video2img.py[line:52] - INFO: timestamp 1702287843.4980130
+2023-12-11 17:44:03,498 - video2img.py[line:55] - INFO: Start split 4/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.4980130.jpg
+2023-12-11 17:44:03,505 - video2img.py[line:52] - INFO: timestamp 1702287843.5055652
+2023-12-11 17:44:03,506 - video2img.py[line:55] - INFO: Start split 5/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5055652.jpg
+2023-12-11 17:44:03,514 - video2img.py[line:52] - INFO: timestamp 1702287843.5147974
+2023-12-11 17:44:03,515 - video2img.py[line:55] - INFO: Start split 6/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5147974.jpg
+2023-12-11 17:44:03,526 - video2img.py[line:52] - INFO: timestamp 1702287843.5263727
+2023-12-11 17:44:03,526 - video2img.py[line:55] - INFO: Start split 7/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5263727.jpg
+2023-12-11 17:44:03,538 - video2img.py[line:52] - INFO: timestamp 1702287843.5381279
+2023-12-11 17:44:03,538 - video2img.py[line:55] - INFO: Start split 8/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5381279.jpg
+2023-12-11 17:44:03,551 - video2img.py[line:52] - INFO: timestamp 1702287843.5512669
+2023-12-11 17:44:03,551 - video2img.py[line:55] - INFO: Start split 9/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5512669.jpg
+2023-12-11 17:44:03,569 - video2img.py[line:52] - INFO: timestamp 1702287843.5689931
+2023-12-11 17:44:03,569 - video2img.py[line:55] - INFO: Start split 10/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5689931.jpg
+2023-12-11 17:44:03,574 - video2img.py[line:52] - INFO: timestamp 1702287843.5742557
+2023-12-11 17:44:03,574 - video2img.py[line:55] - INFO: Start split 11/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5742557.jpg
+2023-12-11 17:44:03,579 - video2img.py[line:52] - INFO: timestamp 1702287843.5792782
+2023-12-11 17:44:03,579 - video2img.py[line:55] - INFO: Start split 12/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5792782.jpg
+2023-12-11 17:44:03,585 - video2img.py[line:52] - INFO: timestamp 1702287843.5854118
+2023-12-11 17:44:03,585 - video2img.py[line:55] - INFO: Start split 13/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5854118.jpg
+2023-12-11 17:44:03,588 - video2img.py[line:52] - INFO: timestamp 1702287843.5889034
+2023-12-11 17:44:03,589 - video2img.py[line:55] - INFO: Start split 14/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5889034.jpg
+2023-12-11 17:44:03,597 - video2img.py[line:52] - INFO: timestamp 1702287843.5974677
+2023-12-11 17:44:03,597 - video2img.py[line:55] - INFO: Start split 15/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.5974677.jpg
+2023-12-11 17:44:03,600 - video2img.py[line:52] - INFO: timestamp 1702287843.6007278
+2023-12-11 17:44:03,601 - video2img.py[line:55] - INFO: Start split 16/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6007278.jpg
+2023-12-11 17:44:03,604 - video2img.py[line:52] - INFO: timestamp 1702287843.6040940
+2023-12-11 17:44:03,604 - video2img.py[line:55] - INFO: Start split 17/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6040940.jpg
+2023-12-11 17:44:03,611 - video2img.py[line:52] - INFO: timestamp 1702287843.6113617
+2023-12-11 17:44:03,614 - video2img.py[line:55] - INFO: Start split 18/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6113617.jpg
+2023-12-11 17:44:03,619 - video2img.py[line:52] - INFO: timestamp 1702287843.6193099
+2023-12-11 17:44:03,621 - video2img.py[line:55] - INFO: Start split 19/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6193099.jpg
+2023-12-11 17:44:03,627 - video2img.py[line:52] - INFO: timestamp 1702287843.6274250
+2023-12-11 17:44:03,630 - video2img.py[line:55] - INFO: Start split 20/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6274250.jpg
+2023-12-11 17:44:03,636 - video2img.py[line:52] - INFO: timestamp 1702287843.6359887
+2023-12-11 17:44:03,638 - video2img.py[line:55] - INFO: Start split 21/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6359887.jpg
+2023-12-11 17:44:03,648 - video2img.py[line:52] - INFO: timestamp 1702287843.6484640
+2023-12-11 17:44:03,649 - video2img.py[line:55] - INFO: Start split 22/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6484640.jpg
+2023-12-11 17:44:03,652 - video2img.py[line:52] - INFO: timestamp 1702287843.6523263
+2023-12-11 17:44:03,652 - video2img.py[line:55] - INFO: Start split 23/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6523263.jpg
+2023-12-11 17:44:03,656 - video2img.py[line:52] - INFO: timestamp 1702287843.6561255
+2023-12-11 17:44:03,656 - video2img.py[line:55] - INFO: Start split 24/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6561255.jpg
+2023-12-11 17:44:03,662 - video2img.py[line:52] - INFO: timestamp 1702287843.6624854
+2023-12-11 17:44:03,662 - video2img.py[line:55] - INFO: Start split 25/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6624854.jpg
+2023-12-11 17:44:03,665 - video2img.py[line:52] - INFO: timestamp 1702287843.6650691
+2023-12-11 17:44:03,665 - video2img.py[line:55] - INFO: Start split 26/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6650691.jpg
+2023-12-11 17:44:03,667 - video2img.py[line:52] - INFO: timestamp 1702287843.6674197
+2023-12-11 17:44:03,667 - video2img.py[line:55] - INFO: Start split 27/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6674197.jpg
+2023-12-11 17:44:03,671 - video2img.py[line:52] - INFO: timestamp 1702287843.6714408
+2023-12-11 17:44:03,671 - video2img.py[line:55] - INFO: Start split 28/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6714408.jpg
+2023-12-11 17:44:03,686 - video2img.py[line:52] - INFO: timestamp 1702287843.6862507
+2023-12-11 17:44:03,686 - video2img.py[line:55] - INFO: Start split 29/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6862507.jpg
+2023-12-11 17:44:03,693 - video2img.py[line:52] - INFO: timestamp 1702287843.6929386
+2023-12-11 17:44:03,693 - video2img.py[line:55] - INFO: Start split 30/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6929386.jpg
+2023-12-11 17:44:03,698 - video2img.py[line:52] - INFO: timestamp 1702287843.6986983
+2023-12-11 17:44:03,699 - video2img.py[line:55] - INFO: Start split 31/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.6986983.jpg
+2023-12-11 17:44:03,701 - video2img.py[line:52] - INFO: timestamp 1702287843.7012830
+2023-12-11 17:44:03,701 - video2img.py[line:55] - INFO: Start split 32/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.7012830.jpg
+2023-12-11 17:44:03,704 - video2img.py[line:52] - INFO: timestamp 1702287843.7042603
+2023-12-11 17:44:03,704 - video2img.py[line:55] - INFO: Start split 33/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver#s3.mp4/1702287843.7042603.jpg
+2023-12-11 17:55:36,882 - video2img.py[line:71] - INFO: osp.split(video_path)[-1]: TomatoSoupCan#s3.mp4
+2023-12-11 17:57:12,901 - video2img.py[line:71] - INFO: osp.split(video_path)[-1]: TomatoSoupCan#s3.mp4
+2023-12-11 17:57:12,902 - video2img.py[line:73] - INFO: filename.spilt(#)[0]: TomatoSoupCan
+2023-12-11 17:57:12,902 - video2img.py[line:75] - INFO: save_new_filename: /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan
+2023-12-11 17:57:12,904 - video2img.py[line:71] - INFO: osp.split(video_path)[-1]: 044_flat_screwdriver#s3.mp4
+2023-12-11 17:57:12,904 - video2img.py[line:73] - INFO: filename.spilt(#)[0]: 044_flat_screwdriver
+2023-12-11 17:57:12,906 - video2img.py[line:75] - INFO: save_new_filename: /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver
+2023-12-11 17:57:12,937 - BaseDataProcessor.py[line:135] - INFO: start multiprocessing, task nums : 2
+2023-12-11 17:57:12,947 - video2img.py[line:44] - INFO: rval: True
+2023-12-11 17:57:12,947 - video2img.py[line:44] - INFO: rval: True
+2023-12-11 17:57:12,987 - video2img.py[line:52] - INFO: timestamp 1702288632.9877694
+2023-12-11 17:57:12,988 - video2img.py[line:55] - INFO: Start split 0/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288632.9877694.jpg
+2023-12-11 17:57:12,997 - video2img.py[line:52] - INFO: timestamp 1702288632.9970341
+2023-12-11 17:57:12,997 - video2img.py[line:55] - INFO: Start split 1/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288632.9970341.jpg
+2023-12-11 17:57:13,002 - video2img.py[line:52] - INFO: timestamp 1702288633.0023806
+2023-12-11 17:57:13,002 - video2img.py[line:55] - INFO: Start split 0/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0023806.jpg
+2023-12-11 17:57:13,011 - video2img.py[line:52] - INFO: timestamp 1702288633.0114002
+2023-12-11 17:57:13,011 - video2img.py[line:55] - INFO: Start split 2/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0114002.jpg
+2023-12-11 17:57:13,017 - video2img.py[line:52] - INFO: timestamp 1702288633.0176322
+2023-12-11 17:57:13,020 - video2img.py[line:55] - INFO: Start split 1/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0176322.jpg
+2023-12-11 17:57:13,025 - video2img.py[line:52] - INFO: timestamp 1702288633.0254695
+2023-12-11 17:57:13,026 - video2img.py[line:55] - INFO: Start split 3/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0254695.jpg
+2023-12-11 17:57:13,028 - video2img.py[line:52] - INFO: timestamp 1702288633.0281031
+2023-12-11 17:57:13,028 - video2img.py[line:55] - INFO: Start split 2/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0281031.jpg
+2023-12-11 17:57:13,030 - video2img.py[line:52] - INFO: timestamp 1702288633.0306866
+2023-12-11 17:57:13,031 - video2img.py[line:55] - INFO: Start split 4/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0306866.jpg
+2023-12-11 17:57:13,031 - video2img.py[line:52] - INFO: timestamp 1702288633.0318913
+2023-12-11 17:57:13,032 - video2img.py[line:55] - INFO: Start split 3/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0318913.jpg
+2023-12-11 17:57:13,035 - video2img.py[line:52] - INFO: timestamp 1702288633.0354242
+2023-12-11 17:57:13,035 - video2img.py[line:55] - INFO: Start split 5/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0354242.jpg
+2023-12-11 17:57:13,041 - video2img.py[line:52] - INFO: timestamp 1702288633.0411863
+2023-12-11 17:57:13,041 - video2img.py[line:55] - INFO: Start split 6/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0411863.jpg
+2023-12-11 17:57:13,047 - video2img.py[line:52] - INFO: timestamp 1702288633.0473466
+2023-12-11 17:57:13,047 - video2img.py[line:55] - INFO: Start split 7/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0473466.jpg
+2023-12-11 17:57:13,050 - video2img.py[line:52] - INFO: timestamp 1702288633.0508735
+2023-12-11 17:57:13,051 - video2img.py[line:55] - INFO: Start split 4/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0508735.jpg
+2023-12-11 17:57:13,051 - video2img.py[line:52] - INFO: timestamp 1702288633.0517125
+2023-12-11 17:57:13,052 - video2img.py[line:55] - INFO: Start split 8/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0517125.jpg
+2023-12-11 17:57:13,056 - video2img.py[line:52] - INFO: timestamp 1702288633.0567362
+2023-12-11 17:57:13,057 - video2img.py[line:55] - INFO: Start split 9/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0567362.jpg
+2023-12-11 17:57:13,057 - video2img.py[line:52] - INFO: timestamp 1702288633.0574975
+2023-12-11 17:57:13,057 - video2img.py[line:55] - INFO: Start split 5/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0574975.jpg
+2023-12-11 17:57:13,061 - video2img.py[line:52] - INFO: timestamp 1702288633.0613086
+2023-12-11 17:57:13,061 - video2img.py[line:55] - INFO: Start split 10/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0613086.jpg
+2023-12-11 17:57:13,065 - video2img.py[line:52] - INFO: timestamp 1702288633.0653839
+2023-12-11 17:57:13,065 - video2img.py[line:55] - INFO: Start split 11/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0653839.jpg
+2023-12-11 17:57:13,068 - video2img.py[line:52] - INFO: timestamp 1702288633.0688159
+2023-12-11 17:57:13,069 - video2img.py[line:55] - INFO: Start split 12/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0688159.jpg
+2023-12-11 17:57:13,075 - video2img.py[line:52] - INFO: timestamp 1702288633.0749710
+2023-12-11 17:57:13,075 - video2img.py[line:55] - INFO: Start split 13/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0749710.jpg
+2023-12-11 17:57:13,078 - video2img.py[line:52] - INFO: timestamp 1702288633.0778613
+2023-12-11 17:57:13,078 - video2img.py[line:55] - INFO: Start split 6/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0778613.jpg
+2023-12-11 17:57:13,082 - video2img.py[line:52] - INFO: timestamp 1702288633.0823441
+2023-12-11 17:57:13,082 - video2img.py[line:55] - INFO: Start split 7/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0823441.jpg
+2023-12-11 17:57:13,083 - video2img.py[line:52] - INFO: timestamp 1702288633.0837073
+2023-12-11 17:57:13,084 - video2img.py[line:55] - INFO: Start split 14/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0837073.jpg
+2023-12-11 17:57:13,088 - video2img.py[line:52] - INFO: timestamp 1702288633.0884995
+2023-12-11 17:57:13,088 - video2img.py[line:55] - INFO: Start split 8/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0884995.jpg
+2023-12-11 17:57:13,094 - video2img.py[line:52] - INFO: timestamp 1702288633.0947249
+2023-12-11 17:57:13,095 - video2img.py[line:55] - INFO: Start split 9/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.0947249.jpg
+2023-12-11 17:57:13,095 - video2img.py[line:52] - INFO: timestamp 1702288633.0955465
+2023-12-11 17:57:13,095 - video2img.py[line:55] - INFO: Start split 15/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0955465.jpg
+2023-12-11 17:57:13,099 - video2img.py[line:52] - INFO: timestamp 1702288633.0991023
+2023-12-11 17:57:13,099 - video2img.py[line:55] - INFO: Start split 16/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.0991023.jpg
+2023-12-11 17:57:13,103 - video2img.py[line:52] - INFO: timestamp 1702288633.1033463
+2023-12-11 17:57:13,103 - video2img.py[line:55] - INFO: Start split 17/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1033463.jpg
+2023-12-11 17:57:13,107 - video2img.py[line:52] - INFO: timestamp 1702288633.1070499
+2023-12-11 17:57:13,107 - video2img.py[line:55] - INFO: Start split 18/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1070499.jpg
+2023-12-11 17:57:13,108 - video2img.py[line:52] - INFO: timestamp 1702288633.1088054
+2023-12-11 17:57:13,109 - video2img.py[line:55] - INFO: Start split 10/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1088054.jpg
+2023-12-11 17:57:13,111 - video2img.py[line:52] - INFO: timestamp 1702288633.1110194
+2023-12-11 17:57:13,111 - video2img.py[line:55] - INFO: Start split 19/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1110194.jpg
+2023-12-11 17:57:13,116 - video2img.py[line:52] - INFO: timestamp 1702288633.1164155
+2023-12-11 17:57:13,116 - video2img.py[line:55] - INFO: Start split 20/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1164155.jpg
+2023-12-11 17:57:13,120 - video2img.py[line:52] - INFO: timestamp 1702288633.1206872
+2023-12-11 17:57:13,121 - video2img.py[line:55] - INFO: Start split 21/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1206872.jpg
+2023-12-11 17:57:13,121 - video2img.py[line:52] - INFO: timestamp 1702288633.1210842
+2023-12-11 17:57:13,122 - video2img.py[line:55] - INFO: Start split 11/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1210842.jpg
+2023-12-11 17:57:13,126 - video2img.py[line:52] - INFO: timestamp 1702288633.1263292
+2023-12-11 17:57:13,126 - video2img.py[line:55] - INFO: Start split 12/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1263292.jpg
+2023-12-11 17:57:13,127 - video2img.py[line:52] - INFO: timestamp 1702288633.1269462
+2023-12-11 17:57:13,127 - video2img.py[line:55] - INFO: Start split 22/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1269462.jpg
+2023-12-11 17:57:13,130 - video2img.py[line:52] - INFO: timestamp 1702288633.1304328
+2023-12-11 17:57:13,130 - video2img.py[line:55] - INFO: Start split 23/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1304328.jpg
+2023-12-11 17:57:13,131 - video2img.py[line:52] - INFO: timestamp 1702288633.1316617
+2023-12-11 17:57:13,131 - video2img.py[line:55] - INFO: Start split 13/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1316617.jpg
+2023-12-11 17:57:13,135 - video2img.py[line:52] - INFO: timestamp 1702288633.1352458
+2023-12-11 17:57:13,135 - video2img.py[line:52] - INFO: timestamp 1702288633.1353693
+2023-12-11 17:57:13,135 - video2img.py[line:55] - INFO: Start split 24/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1352458.jpg
+2023-12-11 17:57:13,135 - video2img.py[line:55] - INFO: Start split 14/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1353693.jpg
+2023-12-11 17:57:13,139 - video2img.py[line:52] - INFO: timestamp 1702288633.1397948
+2023-12-11 17:57:13,140 - video2img.py[line:55] - INFO: Start split 15/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1397948.jpg
+2023-12-11 17:57:13,141 - video2img.py[line:52] - INFO: timestamp 1702288633.1416466
+2023-12-11 17:57:13,142 - video2img.py[line:55] - INFO: Start split 25/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1416466.jpg
+2023-12-11 17:57:13,143 - video2img.py[line:52] - INFO: timestamp 1702288633.1436272
+2023-12-11 17:57:13,143 - video2img.py[line:55] - INFO: Start split 16/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1436272.jpg
+2023-12-11 17:57:13,147 - video2img.py[line:52] - INFO: timestamp 1702288633.1472421
+2023-12-11 17:57:13,147 - video2img.py[line:55] - INFO: Start split 17/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1472421.jpg
+2023-12-11 17:57:13,148 - video2img.py[line:52] - INFO: timestamp 1702288633.1477654
+2023-12-11 17:57:13,148 - video2img.py[line:55] - INFO: Start split 26/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1477654.jpg
+2023-12-11 17:57:13,151 - video2img.py[line:52] - INFO: timestamp 1702288633.1514716
+2023-12-11 17:57:13,151 - video2img.py[line:55] - INFO: Start split 18/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1514716.jpg
+2023-12-11 17:57:13,154 - video2img.py[line:52] - INFO: timestamp 1702288633.1540036
+2023-12-11 17:57:13,154 - video2img.py[line:55] - INFO: Start split 27/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1540036.jpg
+2023-12-11 17:57:13,158 - video2img.py[line:52] - INFO: timestamp 1702288633.1581438
+2023-12-11 17:57:13,158 - video2img.py[line:52] - INFO: timestamp 1702288633.1580966
+2023-12-11 17:57:13,158 - video2img.py[line:55] - INFO: Start split 19/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1581438.jpg
+2023-12-11 17:57:13,158 - video2img.py[line:55] - INFO: Start split 28/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1580966.jpg
+2023-12-11 17:57:13,162 - video2img.py[line:52] - INFO: timestamp 1702288633.1626477
+2023-12-11 17:57:13,163 - video2img.py[line:55] - INFO: Start split 20/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1626477.jpg
+2023-12-11 17:57:13,164 - video2img.py[line:52] - INFO: timestamp 1702288633.1642497
+2023-12-11 17:57:13,165 - video2img.py[line:55] - INFO: Start split 29/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1642497.jpg
+2023-12-11 17:57:13,166 - video2img.py[line:52] - INFO: timestamp 1702288633.1663182
+2023-12-11 17:57:13,166 - video2img.py[line:55] - INFO: Start split 21/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1663182.jpg
+2023-12-11 17:57:13,168 - video2img.py[line:52] - INFO: timestamp 1702288633.1686418
+2023-12-11 17:57:13,168 - video2img.py[line:55] - INFO: Start split 30/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1686418.jpg
+2023-12-11 17:57:13,171 - video2img.py[line:52] - INFO: timestamp 1702288633.1715004
+2023-12-11 17:57:13,171 - video2img.py[line:55] - INFO: Start split 22/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1715004.jpg
+2023-12-11 17:57:13,175 - video2img.py[line:52] - INFO: timestamp 1702288633.1753955
+2023-12-11 17:57:13,175 - video2img.py[line:55] - INFO: Start split 31/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1753955.jpg
+2023-12-11 17:57:13,177 - video2img.py[line:52] - INFO: timestamp 1702288633.1769912
+2023-12-11 17:57:13,177 - video2img.py[line:55] - INFO: Start split 23/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1769912.jpg
+2023-12-11 17:57:13,179 - video2img.py[line:52] - INFO: timestamp 1702288633.1789443
+2023-12-11 17:57:13,179 - video2img.py[line:55] - INFO: Start split 32/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1789443.jpg
+2023-12-11 17:57:13,180 - video2img.py[line:52] - INFO: timestamp 1702288633.1800084
+2023-12-11 17:57:13,180 - video2img.py[line:55] - INFO: Start split 24/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1800084.jpg
+2023-12-11 17:57:13,182 - video2img.py[line:52] - INFO: timestamp 1702288633.1827519
+2023-12-11 17:57:13,183 - video2img.py[line:55] - INFO: Start split 33/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702288633.1827519.jpg
+2023-12-11 17:57:13,183 - video2img.py[line:52] - INFO: timestamp 1702288633.1837595
+2023-12-11 17:57:13,184 - video2img.py[line:55] - INFO: Start split 25/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1837595.jpg
+2023-12-11 17:57:13,188 - video2img.py[line:52] - INFO: timestamp 1702288633.1887259
+2023-12-11 17:57:13,189 - video2img.py[line:55] - INFO: Start split 26/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1887259.jpg
+2023-12-11 17:57:13,193 - video2img.py[line:52] - INFO: timestamp 1702288633.1933010
+2023-12-11 17:57:13,193 - video2img.py[line:55] - INFO: Start split 27/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1933010.jpg
+2023-12-11 17:57:13,196 - BaseDataProcessor.py[line:120] - INFO: Process : 21577 : finish multiprocess task [1] / [2], ETA: 0 minutes
+2023-12-11 17:57:13,197 - video2img.py[line:52] - INFO: timestamp 1702288633.1971440
+2023-12-11 17:57:13,197 - video2img.py[line:55] - INFO: Start split 28/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.1971440.jpg
+2023-12-11 17:57:13,200 - video2img.py[line:52] - INFO: timestamp 1702288633.2004108
+2023-12-11 17:57:13,200 - video2img.py[line:55] - INFO: Start split 29/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.2004108.jpg
+2023-12-11 17:57:13,203 - video2img.py[line:52] - INFO: timestamp 1702288633.2036238
+2023-12-11 17:57:13,203 - video2img.py[line:55] - INFO: Start split 30/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.2036238.jpg
+2023-12-11 17:57:13,206 - video2img.py[line:52] - INFO: timestamp 1702288633.2064240
+2023-12-11 17:57:13,206 - video2img.py[line:55] - INFO: Start split 31/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.2064240.jpg
+2023-12-11 17:57:13,209 - video2img.py[line:52] - INFO: timestamp 1702288633.2092752
+2023-12-11 17:57:13,209 - video2img.py[line:55] - INFO: Start split 32/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.2092752.jpg
+2023-12-11 17:57:13,212 - video2img.py[line:52] - INFO: timestamp 1702288633.2120111
+2023-12-11 17:57:13,212 - video2img.py[line:55] - INFO: Start split 33/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702288633.2120111.jpg
+2023-12-11 17:57:13,217 - BaseDataProcessor.py[line:120] - INFO: Process : 21578 : finish multiprocess task [2] / [2], ETA: 0 minutes
+2023-12-12 00:38:35,807 - video2img.py[line:71] - INFO: osp.split(video_path)[-1]: TomatoSoupCan#s3.mp4
+2023-12-12 00:38:35,807 - video2img.py[line:73] - INFO: filename.spilt(#)[0]: TomatoSoupCan
+2023-12-12 00:38:35,808 - video2img.py[line:75] - INFO: save_new_filename: /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan
+2023-12-12 00:38:35,808 - video2img.py[line:71] - INFO: osp.split(video_path)[-1]: 044_flat_screwdriver#s3.mp4
+2023-12-12 00:38:35,810 - video2img.py[line:73] - INFO: filename.spilt(#)[0]: 044_flat_screwdriver
+2023-12-12 00:38:35,810 - video2img.py[line:75] - INFO: save_new_filename: /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver
+2023-12-12 00:38:35,840 - BaseDataProcessor.py[line:135] - INFO: start multiprocessing, task nums : 2
+2023-12-12 00:38:35,848 - video2img.py[line:44] - INFO: rval: True
+2023-12-12 00:38:35,848 - video2img.py[line:44] - INFO: rval: True
+2023-12-12 00:38:35,927 - video2img.py[line:52] - INFO: timestamp 1702312715.9277344
+2023-12-12 00:38:35,928 - video2img.py[line:55] - INFO: Start split 0/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312715.9277344.jpg
+2023-12-12 00:38:35,936 - video2img.py[line:52] - INFO: timestamp 1702312715.9367633
+2023-12-12 00:38:35,937 - video2img.py[line:55] - INFO: Start split 0/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312715.9367633.jpg
+2023-12-12 00:38:35,945 - video2img.py[line:52] - INFO: timestamp 1702312715.9456115
+2023-12-12 00:38:35,946 - video2img.py[line:55] - INFO: Start split 1/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312715.9456115.jpg
+2023-12-12 00:38:35,952 - video2img.py[line:52] - INFO: timestamp 1702312715.9528980
+2023-12-12 00:38:35,953 - video2img.py[line:55] - INFO: Start split 1/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312715.9528980.jpg
+2023-12-12 00:38:35,955 - video2img.py[line:52] - INFO: timestamp 1702312715.9550025
+2023-12-12 00:38:35,955 - video2img.py[line:55] - INFO: Start split 2/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312715.9550025.jpg
+2023-12-12 00:38:35,961 - video2img.py[line:52] - INFO: timestamp 1702312715.9609745
+2023-12-12 00:38:35,961 - video2img.py[line:55] - INFO: Start split 3/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312715.9609745.jpg
+2023-12-12 00:38:35,972 - video2img.py[line:52] - INFO: timestamp 1702312715.9726565
+2023-12-12 00:38:35,973 - video2img.py[line:55] - INFO: Start split 2/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312715.9726565.jpg
+2023-12-12 00:38:35,977 - video2img.py[line:52] - INFO: timestamp 1702312715.9777861
+2023-12-12 00:38:35,977 - video2img.py[line:52] - INFO: timestamp 1702312715.9777584
+2023-12-12 00:38:35,978 - video2img.py[line:55] - INFO: Start split 4/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312715.9777584.jpg
+2023-12-12 00:38:35,978 - video2img.py[line:55] - INFO: Start split 3/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312715.9777861.jpg
+2023-12-12 00:38:35,986 - video2img.py[line:52] - INFO: timestamp 1702312715.9865630
+2023-12-12 00:38:35,987 - video2img.py[line:55] - INFO: Start split 4/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312715.9865630.jpg
+2023-12-12 00:38:35,992 - video2img.py[line:52] - INFO: timestamp 1702312715.9929171
+2023-12-12 00:38:35,993 - video2img.py[line:55] - INFO: Start split 5/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312715.9929171.jpg
+2023-12-12 00:38:35,993 - video2img.py[line:52] - INFO: timestamp 1702312715.9935546
+2023-12-12 00:38:35,993 - video2img.py[line:55] - INFO: Start split 5/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312715.9935546.jpg
+2023-12-12 00:38:35,997 - video2img.py[line:52] - INFO: timestamp 1702312715.9978867
+2023-12-12 00:38:35,998 - video2img.py[line:55] - INFO: Start split 6/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312715.9978867.jpg
+2023-12-12 00:38:36,002 - video2img.py[line:52] - INFO: timestamp 1702312716.0025926
+2023-12-12 00:38:36,002 - video2img.py[line:55] - INFO: Start split 7/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0025926.jpg
+2023-12-12 00:38:36,003 - video2img.py[line:52] - INFO: timestamp 1702312716.0036669
+2023-12-12 00:38:36,004 - video2img.py[line:55] - INFO: Start split 6/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0036669.jpg
+2023-12-12 00:38:36,011 - video2img.py[line:52] - INFO: timestamp 1702312716.0117772
+2023-12-12 00:38:36,012 - video2img.py[line:52] - INFO: timestamp 1702312716.0120113
+2023-12-12 00:38:36,012 - video2img.py[line:55] - INFO: Start split 7/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0117772.jpg
+2023-12-12 00:38:36,012 - video2img.py[line:55] - INFO: Start split 8/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0120113.jpg
+2023-12-12 00:38:36,020 - video2img.py[line:52] - INFO: timestamp 1702312716.0198739
+2023-12-12 00:38:36,020 - video2img.py[line:52] - INFO: timestamp 1702312716.0209196
+2023-12-12 00:38:36,020 - video2img.py[line:55] - INFO: Start split 9/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0198739.jpg
+2023-12-12 00:38:36,021 - video2img.py[line:55] - INFO: Start split 8/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0209196.jpg
+2023-12-12 00:38:36,028 - video2img.py[line:52] - INFO: timestamp 1702312716.0288274
+2023-12-12 00:38:36,029 - video2img.py[line:55] - INFO: Start split 10/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0288274.jpg
+2023-12-12 00:38:36,032 - video2img.py[line:52] - INFO: timestamp 1702312716.0299423
+2023-12-12 00:38:36,033 - video2img.py[line:55] - INFO: Start split 9/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0299423.jpg
+2023-12-12 00:38:36,033 - video2img.py[line:52] - INFO: timestamp 1702312716.0334287
+2023-12-12 00:38:36,034 - video2img.py[line:55] - INFO: Start split 11/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0334287.jpg
+2023-12-12 00:38:36,040 - video2img.py[line:52] - INFO: timestamp 1702312716.0404801
+2023-12-12 00:38:36,040 - video2img.py[line:55] - INFO: Start split 10/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0404801.jpg
+2023-12-12 00:38:36,042 - video2img.py[line:52] - INFO: timestamp 1702312716.0424697
+2023-12-12 00:38:36,042 - video2img.py[line:55] - INFO: Start split 12/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0424697.jpg
+2023-12-12 00:38:36,047 - video2img.py[line:52] - INFO: timestamp 1702312716.0471201
+2023-12-12 00:38:36,047 - video2img.py[line:55] - INFO: Start split 11/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0471201.jpg
+2023-12-12 00:38:36,048 - video2img.py[line:52] - INFO: timestamp 1702312716.0485294
+2023-12-12 00:38:36,048 - video2img.py[line:55] - INFO: Start split 13/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0485294.jpg
+2023-12-12 00:38:36,054 - video2img.py[line:52] - INFO: timestamp 1702312716.0539165
+2023-12-12 00:38:36,054 - video2img.py[line:55] - INFO: Start split 14/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0539165.jpg
+2023-12-12 00:38:36,055 - video2img.py[line:52] - INFO: timestamp 1702312716.0549631
+2023-12-12 00:38:36,055 - video2img.py[line:55] - INFO: Start split 12/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0549631.jpg
+2023-12-12 00:38:36,060 - video2img.py[line:52] - INFO: timestamp 1702312716.0600281
+2023-12-12 00:38:36,060 - video2img.py[line:55] - INFO: Start split 13/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0600281.jpg
+2023-12-12 00:38:36,061 - video2img.py[line:52] - INFO: timestamp 1702312716.0611172
+2023-12-12 00:38:36,061 - video2img.py[line:55] - INFO: Start split 15/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0611172.jpg
+2023-12-12 00:38:36,063 - video2img.py[line:52] - INFO: timestamp 1702312716.0638320
+2023-12-12 00:38:36,064 - video2img.py[line:55] - INFO: Start split 14/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0638320.jpg
+2023-12-12 00:38:36,068 - video2img.py[line:52] - INFO: timestamp 1702312716.0685117
+2023-12-12 00:38:36,069 - video2img.py[line:55] - INFO: Start split 15/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0685117.jpg
+2023-12-12 00:38:36,069 - video2img.py[line:52] - INFO: timestamp 1702312716.0693815
+2023-12-12 00:38:36,069 - video2img.py[line:55] - INFO: Start split 16/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0693815.jpg
+2023-12-12 00:38:36,074 - video2img.py[line:52] - INFO: timestamp 1702312716.0743363
+2023-12-12 00:38:36,074 - video2img.py[line:55] - INFO: Start split 16/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0743363.jpg
+2023-12-12 00:38:36,076 - video2img.py[line:52] - INFO: timestamp 1702312716.0766287
+2023-12-12 00:38:36,077 - video2img.py[line:55] - INFO: Start split 17/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0766287.jpg
+2023-12-12 00:38:36,080 - video2img.py[line:52] - INFO: timestamp 1702312716.0808740
+2023-12-12 00:38:36,082 - video2img.py[line:52] - INFO: timestamp 1702312716.0823205
+2023-12-12 00:38:36,082 - video2img.py[line:55] - INFO: Start split 18/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0823205.jpg
+2023-12-12 00:38:36,085 - video2img.py[line:55] - INFO: Start split 17/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0808740.jpg
+2023-12-12 00:38:36,088 - video2img.py[line:52] - INFO: timestamp 1702312716.0882549
+2023-12-12 00:38:36,088 - video2img.py[line:55] - INFO: Start split 19/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0882549.jpg
+2023-12-12 00:38:36,090 - video2img.py[line:52] - INFO: timestamp 1702312716.0904901
+2023-12-12 00:38:36,090 - video2img.py[line:55] - INFO: Start split 18/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0904901.jpg
+2023-12-12 00:38:36,095 - video2img.py[line:52] - INFO: timestamp 1702312716.0949531
+2023-12-12 00:38:36,095 - video2img.py[line:55] - INFO: Start split 20/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.0949531.jpg
+2023-12-12 00:38:36,095 - video2img.py[line:52] - INFO: timestamp 1702312716.0958304
+2023-12-12 00:38:36,096 - video2img.py[line:55] - INFO: Start split 19/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.0958304.jpg
+2023-12-12 00:38:36,101 - video2img.py[line:52] - INFO: timestamp 1702312716.1011007
+2023-12-12 00:38:36,101 - video2img.py[line:55] - INFO: Start split 21/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1011007.jpg
+2023-12-12 00:38:36,106 - video2img.py[line:52] - INFO: timestamp 1702312716.1067438
+2023-12-12 00:38:36,107 - video2img.py[line:55] - INFO: Start split 22/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1067438.jpg
+2023-12-12 00:38:36,110 - video2img.py[line:52] - INFO: timestamp 1702312716.1106660
+2023-12-12 00:38:36,110 - video2img.py[line:52] - INFO: timestamp 1702312716.1108482
+2023-12-12 00:38:36,111 - video2img.py[line:55] - INFO: Start split 23/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1108482.jpg
+2023-12-12 00:38:36,111 - video2img.py[line:55] - INFO: Start split 20/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1106660.jpg
+2023-12-12 00:38:36,115 - video2img.py[line:52] - INFO: timestamp 1702312716.1154575
+2023-12-12 00:38:36,115 - video2img.py[line:55] - INFO: Start split 21/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1154575.jpg
+2023-12-12 00:38:36,116 - video2img.py[line:52] - INFO: timestamp 1702312716.1167479
+2023-12-12 00:38:36,117 - video2img.py[line:55] - INFO: Start split 24/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1167479.jpg
+2023-12-12 00:38:36,121 - video2img.py[line:52] - INFO: timestamp 1702312716.1211324
+2023-12-12 00:38:36,121 - video2img.py[line:55] - INFO: Start split 22/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1211324.jpg
+2023-12-12 00:38:36,123 - video2img.py[line:52] - INFO: timestamp 1702312716.1235538
+2023-12-12 00:38:36,123 - video2img.py[line:55] - INFO: Start split 25/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1235538.jpg
+2023-12-12 00:38:36,126 - video2img.py[line:52] - INFO: timestamp 1702312716.1267920
+2023-12-12 00:38:36,127 - video2img.py[line:55] - INFO: Start split 23/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1267920.jpg
+2023-12-12 00:38:36,128 - video2img.py[line:52] - INFO: timestamp 1702312716.1284740
+2023-12-12 00:38:36,128 - video2img.py[line:55] - INFO: Start split 26/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1284740.jpg
+2023-12-12 00:38:36,132 - video2img.py[line:52] - INFO: timestamp 1702312716.1322842
+2023-12-12 00:38:36,132 - video2img.py[line:55] - INFO: Start split 27/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1322842.jpg
+2023-12-12 00:38:36,136 - video2img.py[line:52] - INFO: timestamp 1702312716.1363380
+2023-12-12 00:38:36,136 - video2img.py[line:55] - INFO: Start split 24/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1363380.jpg
+2023-12-12 00:38:36,140 - video2img.py[line:52] - INFO: timestamp 1702312716.1404791
+2023-12-12 00:38:36,140 - video2img.py[line:52] - INFO: timestamp 1702312716.1407087
+2023-12-12 00:38:36,141 - video2img.py[line:55] - INFO: Start split 28/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1407087.jpg
+2023-12-12 00:38:36,140 - video2img.py[line:55] - INFO: Start split 25/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1404791.jpg
+2023-12-12 00:38:36,146 - video2img.py[line:52] - INFO: timestamp 1702312716.1461296
+2023-12-12 00:38:36,146 - video2img.py[line:55] - INFO: Start split 29/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1461296.jpg
+2023-12-12 00:38:36,146 - video2img.py[line:52] - INFO: timestamp 1702312716.1465232
+2023-12-12 00:38:36,146 - video2img.py[line:55] - INFO: Start split 26/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1465232.jpg
+2023-12-12 00:38:36,151 - video2img.py[line:52] - INFO: timestamp 1702312716.1512017
+2023-12-12 00:38:36,152 - video2img.py[line:55] - INFO: Start split 30/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1512017.jpg
+2023-12-12 00:38:36,154 - video2img.py[line:52] - INFO: timestamp 1702312716.1540408
+2023-12-12 00:38:36,154 - video2img.py[line:55] - INFO: Start split 27/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1540408.jpg
+2023-12-12 00:38:36,157 - video2img.py[line:52] - INFO: timestamp 1702312716.1573436
+2023-12-12 00:38:36,157 - video2img.py[line:55] - INFO: Start split 31/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1573436.jpg
+2023-12-12 00:38:36,160 - video2img.py[line:52] - INFO: timestamp 1702312716.1607635
+2023-12-12 00:38:36,160 - video2img.py[line:55] - INFO: Start split 28/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1607635.jpg
+2023-12-12 00:38:36,162 - video2img.py[line:52] - INFO: timestamp 1702312716.1625762
+2023-12-12 00:38:36,162 - video2img.py[line:55] - INFO: Start split 32/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1625762.jpg
+2023-12-12 00:38:36,167 - video2img.py[line:52] - INFO: timestamp 1702312716.1671176
+2023-12-12 00:38:36,167 - video2img.py[line:55] - INFO: Start split 29/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1671176.jpg
+2023-12-12 00:38:36,170 - video2img.py[line:52] - INFO: timestamp 1702312716.1708660
+2023-12-12 00:38:36,171 - video2img.py[line:55] - INFO: Start split 33/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/044_flat_screwdriver/1702312716.1708660.jpg
+2023-12-12 00:38:36,172 - video2img.py[line:52] - INFO: timestamp 1702312716.1725521
+2023-12-12 00:38:36,172 - video2img.py[line:55] - INFO: Start split 30/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1725521.jpg
+2023-12-12 00:38:36,178 - BaseDataProcessor.py[line:120] - INFO: Process : 22122 : finish multiprocess task [1] / [2], ETA: 0 minutes
+2023-12-12 00:38:36,178 - video2img.py[line:52] - INFO: timestamp 1702312716.1781404
+2023-12-12 00:38:36,178 - video2img.py[line:55] - INFO: Start split 31/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1781404.jpg
+2023-12-12 00:38:36,184 - video2img.py[line:52] - INFO: timestamp 1702312716.1843741
+2023-12-12 00:38:36,185 - video2img.py[line:55] - INFO: Start split 32/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1843741.jpg
+2023-12-12 00:38:36,187 - video2img.py[line:52] - INFO: timestamp 1702312716.1878667
+2023-12-12 00:38:36,188 - video2img.py[line:55] - INFO: Start split 33/33, savename - /home/jackeyjin/data_helper/datasets/demo_img/TomatoSoupCan/1702312716.1878667.jpg
+2023-12-12 00:38:36,200 - BaseDataProcessor.py[line:120] - INFO: Process : 22121 : finish multiprocess task [2] / [2], ETA: 0 minutes
