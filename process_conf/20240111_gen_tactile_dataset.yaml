@@ -1,0 +1,35 @@
+task_name: &task_name cr5_pick
+case_name: &case_name 20231123_pick-cr5-random_object_drop_after_lift_straight_action
+workspace: &workspace /home/jackeyjin/data_helper/datasets/demo_img/task_name
+dataset_root: &dataset_root /home/jackeyjin/data_helper/datasets
+log_file_dir: &log_file_dir /home/jackeyjin/data_helper/datasets/demo_img/task_name/log
+CPU_PER_TASK: &CPU_PER_TASK 4
+
+data_processor:
+  - type: GenMetaINFO
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      task_name: *task_name
+      case_name: *case_name
+      json_root: *dataset_root
+      dataset_root: *dataset_root
+  - type: MetaVideo2Img
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      video_root: *dataset_root
+      save_framerate: 1
+  - type: Video2Vis
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      task_name: *task_name
+      case_name: *case_name
+      cam_views: ["front", "fronttop", "topdown", "wrist", "side", "root"]
+      tactile_views: ["gelsightL", "gelsightR"]
+      fps: 10

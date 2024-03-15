@@ -2,7 +2,7 @@ import os.path as osp
 import os
 import json
 import numpy as np
-
+import cv2
 
 class calib_loader():
 
@@ -27,66 +27,74 @@ class calib_loader():
 
     def _load_camera_calibrated_sensor(
         self,
-        vehicle_config_path,
-        camera_names,
+        sensor_config_path,
+        sensor_names,
         undistort=False,
-        with_hmat=False,
-        gac=True,
     ):
+        '''
+            camera_calibrated_sensor:
+                gelsight_left:
+                    intrin:
+                    cam_dist:
+                gelsight_right:
+                    intrin:
+                    cam_dist:
+        '''
         camera_calibrated_sensor = dict()
-        for camera in camera_names:
-            camera_calibrated_sensor[camera] = dict()
-            config_dir = os.path.join(vehicle_config_path, camera)
+        for sensor in sensor_names:
+            camera_calibrated_sensor[sensor] = dict()
+            config_dir = os.path.join(sensor_config_path, sensor)
             if not os.path.exists(
-                    os.path.join(config_dir, f"{camera}-intrinsic.json")):
+                    os.path.join(config_dir, f"{sensor}-intrinsic.json")):
                 continue
-            if not os.path.exists(
-                    os.path.join(config_dir,
-                                 f"{camera}-to-car_center-extrinsic.json")):
-                continue
-            with open(os.path.join(config_dir, f"{camera}-intrinsic.json"),
+            with open(os.path.join(config_dir, f"{sensor}-intrinsic.json"),
                       "r") as f:
                 info = json.load(f)
                 # 3x 3
-                key = "cam_K_new" if undistort else "cam_K"
-                try:
-                    intrin_mat = next(iter(
-                        info.values()))["param"][key]["data"]
-                    dist_mat = next(iter(
-                        info.values()))["param"]["cam_dist"]["data"]
-                except KeyError:
-                    # TODO: remove hard-code, better way
-                    if gac:
-                        intrin_mat = next(iter(
-                            info.values()))["param"]["cam_K"]["data"]
-                        dist_mat = next(iter(
-                            info.values()))["param"]["cam_dist"]["data"]
-                    else:
-                        continue
-            with open(
-                    os.path.join(config_dir,
-                                 f"{camera}-to-car_center-extrinsic.json"),
-                    "r") as f:
-                info = json.load(f)
-                # 4 x 4
-                extrin_mat = next(iter(
-                    info.values()))["param"]["sensor_calib"]["data"]
-            camera_calibrated_sensor[camera]["intrin"] = intrin_mat
-            camera_calibrated_sensor[camera]["extrin"] = extrin_mat
+                key = "cam_K"
+                intrin_mat = next(iter(
+                    info.values()))["param"][key]["data"]
+                dist_mat = next(iter(
+                    info.values()))["param"]["cam_dist"]["data"]
+            camera_calibrated_sensor[sensor]["intrin"] = intrin_mat
             if undistort:
-                camera_calibrated_sensor[camera]["cam_dist"] = dist_mat
-            if with_hmat:
-                if not os.path.exists(
-                        os.path.join(config_dir, f"{camera}-hmatrix.json")):
-                    camera_calibrated_sensor[camera]["h_matrix"] = None
-                    continue
-                with open(os.path.join(config_dir, f"{camera}-hmatrix.json"),
-                          "r") as f:
-                    info = json.load(f)
-                    hmat = next(iter(
-                        info.values()))["param"]["h_matrix"]["data"]
-                    camera_calibrated_sensor[camera]["h_matrix"] = hmat
+                camera_calibrated_sensor[sensor]["cam_dist"] = dist_mat
         return camera_calibrated_sensor
+    
+    def gen_calib_results(
+        self, 
+        imgs,
+        camera_calibrated_sensor,
+        sensor_names
+    ):
+        '''
+            imgs:
+                gelsight_left:
+                    img_path:
+                    img_origin:
+                gelsight_right:
+                    img_path:
+                    img_origin:
+            dst:
+                gelsight_left:
+                    img_distort:
+                gelsight_right:
+                    img_distort:
+        '''
+        for sensor in sensor_names:
+            dst[sensor] = dict()
+            intrin = camera_calibrated_sensor[sensor]["intrin"]
+            dist = camera_calibrated_sensor[sensor]["cam_dist"]
+            img = imgs[sensor]
+            # img_distort = cv2.undistort(img, np.array(intrin), np.array(dist))
+            h, w = img.shape[:2]
+            newcameramtx, roi = cv2.getOptimalNewCameraMatrix(intrin, dist, (w,h), 0, (w,h))
+            dst[sensor]["img_distort"] = cv2.undistort(img, intrin, dist, None, newcameramtx)
+
+            # 剪裁图像
+            x, y, w, h = roi
+            dst = dst[y:y+h, x:x+w]
+        return dst
 
     def gen_calib_sensor_by_case(self, cams, calib_dir, GAC=True):
         car_center_dir = osp.join(calib_dir, "car_center")

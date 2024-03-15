@@ -19,7 +19,7 @@ class BaseRunner(ABC):
         return processors
 
     def run(self):
-        meta = {}
+        meta = []
         task_infos = {}
         for processor in self.processors:
             results = processor(meta, task_infos)

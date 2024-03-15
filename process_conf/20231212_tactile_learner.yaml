@@ -1,0 +1,32 @@
+task_name: &task_name task_name
+workspace: &workspace /home/jackeyjin/data_helper/datasets/demo_img/task_name
+log_file_dir: &log_file_dir /home/jackeyjin/data_helper/datasets/demo_img/task_name/log
+table_path: &table_path /home/jackeyjin/gelsight_cali/cali_table/gelsight_cali_table_smooth.npy
+ref_img_path: &ref_img_path /home/jackeyjin/gelsight_cali/ref_img/ref_img.png
+dataset_root: &dataset_root /home/jackeyjin/data_helper/datasets/subtask_datasets/A_only_test2
+CPU_PER_TASK: &CPU_PER_TASK 1
+
+data_processor:
+  # - type: Video2ImgV2
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     video_root: *dataset_root
+  #     save_framerate: 1
+  - type: Tactile_Learner
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      tactile_root: /home/jackeyjin/data_helper/datasets/subtask_datasets/A_only_test2/rgb/GelSightL_1707330955058305_3_55
+      description_save_root: /home/jackeyjin/data_helper/datasets/demo_img
+      model_file_path: /home/jackeyjin/data_helper/robot_data/configs/nnmini.pt
+      dataset_root: *dataset_root
+      sensor_config_path: /home/jackeyjin/data_helper/datasets/demo_calibration/gelsight_left
+      sensor_name: ["gelsight"]
+      gpuorcpu: "cpu"
+      use_video: False
+      use_calibrate: False
+      border_size: 25
+      is_save_video: False

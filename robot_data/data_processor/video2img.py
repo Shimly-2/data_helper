@@ -3,6 +3,7 @@ import cv2
 import time
 import os
 from tqdm import tqdm
+from tqdm import trange
 import math
 import multiprocessing
 import os.path as osp
@@ -19,77 +20,72 @@ class video2img(BaseDataProcessor):
         workspace,
         video_root,
         new_img_save_root,
+        task_name,
+        case_name,
         save_framerate=3,
         **kwargs,
     ):
         super().__init__(workspace, **kwargs)
         self.save_framerate = save_framerate
+        self.task_name = task_name
+        self.case_name = case_name
         self.video_root = video_root
         self.save_root = new_img_save_root
-        # self.new_gt_save_dir = new_gt_save_dir
-        os.makedirs(self.save_root, exist_ok=True)
 
         self.timestamp_maker = RobotTimestampsIncoder()
-        # os.makedirs(new_gt_save_dir, exist_ok=True)
 
     def split_per_video(self, video_path, save_path, save_framerate):
-        # save_dir = save_path + '/' + newname
-        vc = cv2.VideoCapture(osp.join(self.video_root, video_path))
+        os.makedirs(save_path, exist_ok=True)
+        object_name = video_path.split("/")[-3]
+        epoch = video_path.split("/")[-2]
+        view = video_path.split("/")[-1].split(".")[0]
+        vc = cv2.VideoCapture(video_path)
         cap_num = int(vc.get(7))
         cap_width = math.ceil(vc.get(3))
         cap_height = math.ceil(vc.get(4))
         # assert cap_width==3840 and cap_height==1920
         rval = vc.isOpened()
-        assert rval, "video path not exist - {}".format(osp.join(self.video_root, video_path))
+        assert rval, "video path not exist - {}".format(video_path)
         cnt = -1
-        while rval:
+        # while rval:
+        for i in trange(int(cap_num/save_framerate), colour='green', desc=f'PID[{os.getpid()}]: Split<{epoch}-{object_name}-{view}>'):
             rval, frame = vc.read()
-            cnt += 1
+            # cnt += 1
             if rval:
-                if cnt % save_framerate == 0:
+                if i % save_framerate == 0:
                     timestamp = self.timestamp_maker.set_current_timestamp()
-                    savename = os.path.join(save_path, timestamp + '.jpg')
-                    # cv2.imwrite(savename, frame)
-                    self.logger.info(f"Start split {int(cnt/3)}/{int(cap_num/3)}, savename - {savename}")
+                    # savename = os.path.join(save_path, timestamp + '.jpg')
+                    savename = os.path.join(save_path, f'rgb_{i}.jpg')
+                    cv2.imwrite(savename, frame)
+                    # self.logger.info(f"Start split {int(cnt/save_framerate)}/{int(cap_num/save_framerate)}, savename - {savename}")
             else:
                 break
         vc.release()
-        print('Done : ' + str() + video_path)
+        self.logger.info(f'Done: {video_path}')
         
     def process(self, meta, task_infos):
         results = []
-        # os.makedirs(osp.join(self.save_root, 'camera_name'),
-        #             exist_ok=True)
+        video_paths = []
+        for dirpath, dirnames, filenames in os.walk(osp.join(self.video_root, self.task_name, self.case_name)):
+            for filename in filenames:
+                if filename.endswith(".mp4"):
+                    video_paths.append(os.path.join(dirpath, filename))
         if self.pool > 1:
             args_list = []
-            video_paths = os.listdir(self.video_root) #返回指定路径下的文件和文件夹列表。
             for video_path in video_paths:  #依次读取视频文件
-            #for meta_file, ceph_dir in zip(self.meta_files, self.ceph_dirs):
-                filename = osp.split(video_path)[-1]
-                filename = filename.split("#")[0]
-                save_new_filename = osp.join(self.save_root, filename)
-                # save_fixed_filename = osp.join(self.save_root, 'camera_name', filename)
+                object_name = video_path.split("/")[-3]
+                epoch = video_path.split("/")[-2]
+                view = video_path.split("/")[-1].split(".")[0]
+                # filename = f ilename.split("#")[0]
+                save_new_filename = osp.join(self.save_root, self.task_name, self.case_name, "train_metas", object_name, view, epoch, "rgb")
                 args_list.append((video_path, save_new_filename, self.save_framerate))
             results = self.multiprocess_run(self.split_per_video, args_list)
         else:
-            video_paths = os.listdir(self.video_root) #返回指定路径下的文件和文件夹列表。
             for idx, video_path in enumerate(video_paths):  #依次读取视频文件
-            # for idx, (meta_file, ceph_dir) in enumerate(
-            #         zip(self.meta_files, self.ceph_dirs)):
                 filename = osp.split(video_path)[-1]
                 save_new_filename = osp.join(self.save_root, filename)
-                # save_fixed_filename = osp.join(self.save_root,
-                #                                'fix_unmatched_solid', filename)
                 self.logger.info(
-                    f"start process {idx+1}/{len(video_paths)}")
+                    f"Start process {idx+1}/{len(video_paths)}")
                 results.append(
                     self.split_per_video(video_path, save_new_filename, self.save_framerate))
-        # filtered_all = 0
-        # for filtered_nums in results:
-        #     filtered_all += filtered_nums
-        # self.logger.info(f'filter {filtered_all} frames')
-        # task_infos.update({
-        #     'filter_nums': filtered_all,
-        #     'new_meta_save_root': self.save_root
-        # })
         return meta, task_infos
