@@ -1,0 +1,9 @@
+pyyaml
+numpy
+matplotlib
+opencv-python
+scipy
+Pillow
+tqdm
+multiprocessing_logging
+seaborn

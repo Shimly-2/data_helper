@@ -1,19 +1,22 @@
 task_name: &task_name cr5_pick
 case_name: &case_name 20231123_pick-cr5-random_object_drop_after_lift_straight_action
-workspace: &workspace /home/jackeyjin/data_helper/datasets/demo_img/task_name
-dataset_root: &dataset_root /home/jackeyjin/data_helper/datasets
-log_file_dir: &log_file_dir /home/jackeyjin/data_helper/datasets/demo_img/task_name/log
-CPU_PER_TASK: &CPU_PER_TASK 4
+workspace: &workspace /remote-home/1950049/data_helper/datasets/demo_img/task_name
+dataset_root: &dataset_root /remote-home/1950049/dataset/single_test
+log_file_dir: &log_file_dir /remote-home/1950049/data_helper/datasets/demo_img/task_name/log
+CPU_PER_TASK: &CPU_PER_TASK 2
 
 data_processor:
+  - type: GenDatasetINFO
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
   - type: GenMetaINFO
     kwargs:
       workspace: *workspace
       log_file_dir: *log_file_dir
       multiprocess_pool: *CPU_PER_TASK
-      task_name: *task_name
-      case_name: *case_name
-      json_root: *dataset_root
       dataset_root: *dataset_root
   - type: MetaVideo2Img
     kwargs:

@@ -2,6 +2,11 @@ import os
 import os.path as osp
 import json
 
+def get_dirpath_from_key(path, key):
+    parts = path.split('/')
+    index = parts.index(key)
+    parent_directory = '/'.join(parts[:index])
+    return parent_directory
 
 def write_txt(files, path, file_name=None, mod="w+"):
     if not path.endswith(".txt"):
