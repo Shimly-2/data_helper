@@ -235,7 +235,7 @@ def draw_flow(frame, flow):
     dnet = np.sqrt(dx**2 + dy**2)
     # print (dnet * 0.075, '\n')
 
-    K = 8 #default 1
+    K = 6 #default 1 /in paper 8
     for i in range(len(Ox)):
         for j in range(len(Ox[i])):
             pt1 = (int(Ox[i][j]), int(Oy[i][j]))
@@ -269,7 +269,7 @@ def draw_flow_contact(frame, flow, final_list):
 
 def draw_flow_uv(frame, flow, u, v, final_list):
     Ox, Oy, Cx, Cy, Occupied = flow
-    K = 50
+    K = 48 # in paper 50
     for i in range(len(Ox)):
         for j in range(len(Ox[i])):
             # if(final_list[i][j]==1):

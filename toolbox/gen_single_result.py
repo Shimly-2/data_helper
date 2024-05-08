@@ -510,10 +510,12 @@ def tranfps(cap, fps, target_fps):
 if __name__ == "__main__":
     '''用于倒置depth的config'''
     table_path = "/home/jackeyjin/Gel-Cali/cali_table/gelsight_cali_table_smooth.npy"
+    # table_path = "/mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel/cali/gelsight_cali_table_smooth.npy"
     ref_img_path = "/home/jackeyjin/Gel-Cali/ref_img/ref_img_update.png"
+    # ref_img_path = "/mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel/rgb/GelSightL_1714047492181235/rgb_0.jpg"
     dataset_root = "/home/jackeyjin/data_helper/datasets/subtask_datasets/A_only_test2"
-    test_img_path = "/home/jackeyjin/gelsight_cali/cali_img/force_test1/gelsight_left_450.png"
-
+    test_img_path = "/home/jackeyjin/gelsight_cali/cali_img/force_test1/gelsight_left_0.png"
+    # test_img_path = '/mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel/rgb/GelSightL_1714047492181235/rgb_145.jpg'
     '''用于正置depth的config'''
     # ref_img_path = "/home/jackeyjin/data_helper/datasets/subtask_datasets/A_only_test2/rgb/GelSightL_1707330955058305_3_55/rgb_0.jpg"
     # test_img_path = "/home/jackeyjin/data_helper/datasets/subtask_datasets/A_only_test2/rgb/GelSightL_1707330955058305_3_55/rgb_297.jpg" # 297 745 1305 1312 1513 274 520 2591 2247 2610

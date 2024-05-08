@@ -81,17 +81,19 @@ def contact_detection_v2(frame, origin):
     gray_img=cv2.cvtColor(mask,cv2.COLOR_RGB2GRAY)
     # 尝试用阈值限定但是泛化性很差
     #############################################################
-    _, maskn = cv2.threshold(r, 24, 255, cv2.THRESH_BINARY)
+    _, maskn = cv2.threshold(r, 6, 255, cv2.THRESH_BINARY)
     # _, maskn = cv2.threshold(gray_img, 36, 255, cv2.THRESH_BINARY)
     # _, maskn = cv2.threshold(g, 34, 255, cv2.THRESH_BINARY)
-    maskn = cv2.medianBlur(maskn,15)
+    maskn = cv2.medianBlur(maskn,31)
     # cv2.imshow('maskn',maskn)
     #############################################################
     # cv2.imshow('b',r)
-    im_canny_top1 = cv2.Canny(r, 6, 7, 5)
+    # im_canny_top1 = cv2.Canny(r, 6, 7, 5)
+    im_canny_top1 = cv2.Canny(r, 1, 6, 5)
     # im_canny_top2 = cv2.Canny(gray_img, 6, 7, 9)
     # cv2.imshow('im_canny_top',im_canny_top1)
-    img_d = cv2.dilate(im_canny_top1, kernal1, iterations=1)
+    # change maskn/ im_canny_top1
+    img_d = cv2.dilate(maskn, kernal1, iterations=1)
     img_dd = cv2.dilate(img_d, kernal11, iterations=1)
     img_e = cv2.erode(img_dd, kernal1_1, iterations=1)
     img_ee = cv2.erode(img_e, kernal2, iterations=1)

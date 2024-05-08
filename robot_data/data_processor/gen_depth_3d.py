@@ -211,6 +211,7 @@ def plot_depth3D(depth, detector, save_img_path):
     Pixmm = detector.Pixmm
     X = X * Pixmm
     Y = Y * Pixmm
+    depth = depth / 10.0
     depth=cv2.boxFilter(depth,-1,(25,25),normalize=1)
     surf = ax.plot_surface(X, Y, depth, cmap=cm.plasma, label="depth")
     # max_range = np.array([X.max() - X.min(), Y.max() - Y.min(), depth.max() - depth.min()]).max() / 2.0

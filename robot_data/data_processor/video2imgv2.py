@@ -50,8 +50,8 @@ class video2imgV2(BaseDataProcessor):
                     # self.logger.info(f"Start split {int(cnt/save_framerate)}/{int(cap_num/save_framerate)}, savename - {savename}")
             else:
                 break
-            if cnt==30:
-                break
+            # if cnt==30:
+            #     break
         vc.release()
         self.logger.info(f'Done: {video_path}')
         

@@ -1,4 +1,4 @@
-from .BaseDataProcessor import BaseDataProcessor
+from robot_data.data_processor.BaseDataProcessor import BaseDataProcessor
 import cv2
 import time
 import os
@@ -21,7 +21,7 @@ from robot_data.apis.flow_calculation import flow_calculate_global, estimate_uv
 from robot_data.apis.contact_detection import contact_detection_v2
 import json
 
-@DATA_PROCESSER_REGISTRY.register("Tactile_Learner")
+# @DATA_PROCESSER_REGISTRY.register("Tactile_Learner")
 class tactile_learner(BaseDataProcessor):
 
     def __init__(
@@ -105,7 +105,7 @@ class tactile_learner(BaseDataProcessor):
         imgs_list_generator = ImageReader("path","RGB")
         self.imgs_list = imgs_list_generator.prepare_imgs(self.tactile_root)
 
-    def gen_per_optical_flow_description(self, raw_img_list, flow_path, contact_path, uv_flow_path, force_data_path):
+    def gen_per_optical_flow_description(self, raw_img_list):
         if not raw_img_list[0].endswith(".jpg"):
             ref_img = cv2.imread(raw_img_list[0] + ".jpg")
         else:
@@ -113,22 +113,20 @@ class tactile_learner(BaseDataProcessor):
         self.init_nn(self.model_file_path, self.gpuorcpu)
         self.init_flow_matcher(ref_img)
         self.init_cailb(self.sensor_config_path, self.sensor_name, self.use_undistort)
-        os.makedirs(flow_path, exist_ok=True)
-        os.makedirs(contact_path, exist_ok=True)
-        os.makedirs(uv_flow_path, exist_ok=True)
-        os.makedirs(force_data_path, exist_ok=True)
-        if not force_data_path.endswith(".json"):
-            force_data_path = force_data_path + ".json"
-        object_name = flow_path.split("/")[-3]
-        view = flow_path.split("/")[-1]
+        contact_path = os.path.dirname(raw_img_list[0]).replace("rgb","contact_test")
+        # os.makedirs(contact_path, exist_ok=True)
+        # if not force_data_path.endswith(".json"):
+        #     force_data_path = force_data_path + ".json"
+        # object_name = flow_path.split("/")[-3]
+        # view = flow_path.split("/")[-1]
         force_data = []
-        for raw_img_path in tqdm(raw_img_list, colour="green", desc=f"PID[{os.getpid()}]: Process<{object_name}--{view}>"):
+        for i in range(1):
             per_force_data = dict()
-            if not raw_img_path.endswith(".jpg"):
-                raw_img_path = raw_img_path + ".jpg"
+            # if not raw_img_path.endswith(".jpg"):
+            #     raw_img_path = raw_img_path + ".jpg"
             imgs = dict()
             imgs["gelsight"] = dict()
-            imgs["gelsight"]["img_origin"] = cv2.imread(raw_img_path)
+            imgs["gelsight"]["img_origin"] = cv2.imread(raw_img_list[1])
             final_listn = [[0]*9 for _ in range(7)]
             final_list_num = 0
             x1, y1, x2, y2, u, v = [],[],[],[],[],[]
@@ -149,70 +147,70 @@ class tactile_learner(BaseDataProcessor):
                 imgs[sensor]["img_mc"] = marker_detection.marker_center(imgs[sensor]["img_mask"], imgs[sensor]["img_origin"])
             if self.use_calibrate == False:
                 ### matching init
-                self.flow_matcher.init(imgs["gelsight"]["img_mc"])
+                # self.flow_matcher.init(imgs["gelsight"]["img_mc"])
 
-                ### matching
-                self.flow_matcher.run()
+                # ### matching
+                # self.flow_matcher.run()
 
-                ### matching result
-                """
-                output: (Ox, Oy, Cx, Cy, Occupied) = flow
-                    Ox, Oy: N*M matrix, the x and y coordinate of each marker at frame 0
-                    Cx, Cy: N*M matrix, the x and y coordinate of each marker at current frame
-                    Occupied: N*M matrix, the index of the marker at each position, -1 means inferred. 
-                        e.g. Occupied[i][j] = k, meaning the marker mc[k] lies in row i, column j.
-                """
-                flow = self.flow_matcher.get_flow()
+                # ### matching result
+                # """
+                # output: (Ox, Oy, Cx, Cy, Occupied) = flow
+                #     Ox, Oy: N*M matrix, the x and y coordinate of each marker at frame 0
+                #     Cx, Cy: N*M matrix, the x and y coordinate of each marker at current frame
+                #     Occupied: N*M matrix, the index of the marker at each position, -1 means inferred. 
+                #         e.g. Occupied[i][j] = k, meaning the marker mc[k] lies in row i, column j.
+                # """
+                # flow = self.flow_matcher.get_flow()
 
-                # calculate flow
-                x1, y1, x2, y2, u, v = flow_calculate_global(flow)
-                u_sum = np.array(u)
-                v_sum = np.array(v)
-                x2_center = np.expand_dims(np.array(x2),axis = 1)
-                y2_center = np.expand_dims(np.array(y2),axis = 1)
-                x1_center = np.expand_dims(np.array(x1),axis = 1)
-                y1_center = np.expand_dims(np.array(y1),axis = 1)
-                p2_center = np.expand_dims(np.concatenate((x2_center,y2_center),axis = 1),axis = 0)
-                p1_center = np.expand_dims(np.concatenate((x1_center,y1_center),axis = 1),axis = 0)
+                # # calculate flow
+                # x1, y1, x2, y2, u, v = flow_calculate_global(flow)
+                # u_sum = np.array(u)
+                # v_sum = np.array(v)
+                # x2_center = np.expand_dims(np.array(x2),axis = 1)
+                # y2_center = np.expand_dims(np.array(y2),axis = 1)
+                # x1_center = np.expand_dims(np.array(x1),axis = 1)
+                # y1_center = np.expand_dims(np.array(y1),axis = 1)
+                # p2_center = np.expand_dims(np.concatenate((x2_center,y2_center),axis = 1),axis = 0)
+                # p1_center = np.expand_dims(np.concatenate((x1_center,y1_center),axis = 1),axis = 0)
 
-                tran_matrix, _ = cv2.estimateAffinePartial2D(p1_center,p2_center,False)
+                # tran_matrix, _ = cv2.estimateAffinePartial2D(p1_center,p2_center,False)
 
-                if tran_matrix is not None:
-                    u_estimate, v_estimate = estimate_uv(tran_matrix, x1, y1, u_sum, v_sum, x2, y2)
-                    vel_diff = np.sqrt((u_estimate - u_sum)**2 + (v_estimate - v_sum)**2)
-                    u_diff = u_estimate - u_sum
-                    v_diff = v_estimate - v_sum
-                if np.abs(np.mean(v_sum)) > np.abs(np.mean(u_sum)) + 2:
-                    thre_slip_dis = 3.5
-                else:
-                    thre_slip_dis = 4.5
+                # if tran_matrix is not None:
+                #     u_estimate, v_estimate = estimate_uv(tran_matrix, x1, y1, u_sum, v_sum, x2, y2)
+                #     vel_diff = np.sqrt((u_estimate - u_sum)**2 + (v_estimate - v_sum)**2)
+                #     u_diff = u_estimate - u_sum
+                #     v_diff = v_estimate - v_sum
+                # if np.abs(np.mean(v_sum)) > np.abs(np.mean(u_sum)) + 2:
+                #     thre_slip_dis = 3.5
+                # else:
+                #     thre_slip_dis = 4.5
 
-                    numofslip = np.sum(vel_diff > thre_slip_dis)
+                #     numofslip = np.sum(vel_diff > thre_slip_dis)
     
-                    abs_change_u = np.abs(previous_u_sum - np.mean(u_sum))
-                    abs_change_v = np.abs(previous_v_sum - np.mean(v_sum))
-                    abs_change = np.sqrt(abs_change_u**2+abs_change_v**2)
-                    # diff_img_sum = np.sum(np.abs(previous_image.astype(np.int16) - final_image.astype(np.int16)))
+                #     abs_change_u = np.abs(previous_u_sum - np.mean(u_sum))
+                #     abs_change_v = np.abs(previous_v_sum - np.mean(v_sum))
+                #     abs_change = np.sqrt(abs_change_u**2+abs_change_v**2)
+                #     # diff_img_sum = np.sum(np.abs(previous_image.astype(np.int16) - final_image.astype(np.int16)))
                     
-                    thre_slip_num = 7
-                    slip_indicator = numofslip > thre_slip_num
-                    static_flag = False
+                #     thre_slip_num = 7
+                #     slip_indicator = numofslip > thre_slip_num
+                #     static_flag = False
 
-                if tran_matrix is None:
-                    slip_monitor['values'] = [np.mean(np.array(u)),np.mean(np.array(v)),np.arcsin(self.tran_matrix[1,0])/np.pi*180]
-                else:
-                    slip_monitor['values'] = [np.mean(np.array(u)),np.mean(np.array(v)),0.]
+                # if tran_matrix is None:
+                #     slip_monitor['values'] = [np.mean(np.array(u)),np.mean(np.array(v)),np.arcsin(self.tran_matrix[1,0])/np.pi*180]
+                # else:
+                #     slip_monitor['values'] = [np.mean(np.array(u)),np.mean(np.array(v)),0.]
 
-                slip_monitor['name'] = str(slip_indicator)
+                # slip_monitor['name'] = str(slip_indicator)
 
-                previous_slip = slip_indicator
-                previous_u_sum = np.mean(np.array(u))
-                previous_v_sum = np.mean(np.array(v))
+                # previous_slip = slip_indicator
+                # previous_u_sum = np.mean(np.array(u))
+                # previous_v_sum = np.mean(np.array(v))
 
                 
-                if slip_indicator: 
-                    print("slip!") 
-                    slip_indicator = False
+                # if slip_indicator: 
+                #     print("slip!") 
+                #     slip_indicator = False
 
                 # contact detection####################################################
                 for sensor in self.sensor_name:
@@ -224,15 +222,13 @@ class tactile_learner(BaseDataProcessor):
                     if contours is not None:
                         area = []
                         topk_contours =[]
-                        imgs[sensor]["img_flow"] = copy.deepcopy(imgs[sensor]["img_origin"])
-                        imgs[sensor]["img_uv_flow"] = copy.deepcopy(imgs[sensor]["img_origin"])
                         x, y = imgs[sensor]["img_contact"].shape
                         for i in range(len(contours)):
                             # 对每一个连通域使用一个掩码模板计算非0像素(即连通域像素个数)
                             single_masks = np.zeros((x, y),dtype=np.uint8) 
                             fill_image = cv2.fillConvexPoly(single_masks, np.array(contours[i],dtype = np.int), 255)
                             pixels = cv2.countNonZero(fill_image)
-                            if(pixels<1500):
+                            if(pixels<200):
                                 fill_image = cv2.fillConvexPoly(single_masks, contours[i], 0)
                             else:
                                 area.append(pixels)
@@ -241,7 +237,7 @@ class tactile_learner(BaseDataProcessor):
                         if len(area): 
                             cv2.drawContours(imgs[sensor]["img_contact"], contours, -1, (0,255,0), 2)
                         bitand = cv2.medianBlur(imgs[sensor]["img_contact"],21)
-                        if(len(imgs[sensor]["img_contact"][imgs[sensor]["img_contact"]==255])<100):
+                        if(len(imgs[sensor]["img_contact"][imgs[sensor]["img_contact"]==255])<20):
                             imgs[sensor]["img_origin"][:,:,1] = imgs[sensor]["img_origin"][:,:,1]
                         else:
                             imgs[sensor]["img_origin"][:,:,1] = imgs[sensor]["img_origin"][:,:,1] + bitand/7
@@ -249,41 +245,31 @@ class tactile_learner(BaseDataProcessor):
                     ####################################################################
                         
                         # calculate final contact list
-                        Ox, Oy, Cx, Cy, Occupied = flow
-                        for i in range(len(Ox)):
-                            for j in range(len(Ox[i])):
-                                if(fill_image[int(Cy[i][j])][int(Cx[i][j])]==255):
-                                    final_listn[i][j] = 1
+                        # Ox, Oy, Cx, Cy, Occupied = flow
+                        # for i in range(len(Ox)):
+                        #     for j in range(len(Ox[i])):
+                        #         if(fill_image[int(Cy[i][j])][int(Cx[i][j])]==255):
+                        #             final_listn[i][j] = 1
 
                         # imgs[sensor]["img_flow"] = copy.deepcopy(imgs[sensor]["img_origin"])
                         # imgs[sensor]["img_uv_flow"] = copy.deepcopy(imgs[sensor]["img_origin"])
-                        marker_detection.draw_flow(imgs[sensor]["img_flow"], flow)
-                        marker_detection.draw_flow_uv(imgs[sensor]["img_uv_flow"], flow, u_estimate, v_estimate, final_listn)
+                        # marker_detection.draw_flow(imgs[sensor]["img_flow"], flow)
+                        # marker_detection.draw_flow_uv(imgs[sensor]["img_uv_flow"], flow, u_estimate, v_estimate, final_listn)
                         
-                        cv2.imwrite(raw_img_path.replace("rgb","flow"),imgs[sensor]["img_flow"])
-                        cv2.imwrite(raw_img_path.replace("rgb","contact"),imgs[sensor]["img_origin"])
-                        cv2.imwrite(raw_img_path.replace("rgb","uv_flow"),imgs[sensor]["img_uv_flow"])
-                        save_path = raw_img_path.replace("rgb","flow")
-                        per_force_data["u_sum"] = sum(u_estimate)
-                        per_force_data["u_max"] = np.max(u_estimate)
-                        per_force_data["u_min"] = np.min(u_estimate)
-                        per_force_data["v_sum"] = sum(v_estimate)
-                        per_force_data["v_max"] = np.max(v_estimate)
-                        per_force_data["v_min"] = np.min(v_estimate)
-                        force_data.append(per_force_data)
-                        self.logger.info(f"Successsfully saved {save_path}")
+                        # cv2.imwrite(raw_img_path.replace("rgb","contact_test"),imgs[sensor]["img_origin"])
+                        cv2.imshow("contact",imgs[sensor]["img_origin"])
+                        cv2.waitKey(0)
+                        # self.logger.info(f"Successsfully saved {save_path}")
                         # marker_detection.draw_flow_contact(frame, flow, final_listn)
                         # marker_detection.draw_flow_uv_contact(frameuv, flow, u_estimate, v_estimate, final_listn)
-        with open(force_data_path, "w") as f:
-            json_str = json.dumps(force_data, indent=4)
-            f.write(json_str)
-        self.logger.info(f'Done: {flow_path}')
+        
+        # self.logger.info(f'Done: {flow_path}')
     
     def gen_meta_infos(self, meta):
         video_paths = []
         for dirpath, dirnames, filenames in os.walk(self.dataset_root):
             for filename in filenames:
-                if filename.endswith(".mp4") and filename.find("#") < 0:
+                if filename.endswith(".mp4"):
                     video_paths.append(os.path.join(dirpath, filename))
         for video_path in video_paths:  #依次读取视频文件
             '''/root/raw_meta/xxx.mp4-->/root/rgb/xxx/'''
@@ -316,7 +302,7 @@ class tactile_learner(BaseDataProcessor):
                 raw_img_list.sort(key=lambda x: int(x.split(".")[0].split("_")[-1])) 
                 raw_img_list = [os.path.join(per_meta["raw_meta_root"], x) for x in raw_img_list]
                 flow_path = os.path.dirname(raw_img_list[0]).replace("rgb", "flow")
-                contact_path = os.path.dirname(raw_img_list[0]).replace("rgb","contact")
+                contact_path = os.path.dirname(raw_img_list[0]).replace("rgb","contact_test")
                 uv_flow_path = os.path.dirname(raw_img_list[0]).replace("rgb","uv_flow")
                 force_data_path = os.path.dirname(raw_img_list[0]).replace("rgb", "force_uv_data")
                 self.logger.info(
@@ -324,3 +310,25 @@ class tactile_learner(BaseDataProcessor):
                 results.append(
                     self.gen_per_optical_flow_description(raw_img_list, flow_path, contact_path, uv_flow_path, force_data_path))
         return meta, task_infos
+    
+if __name__ == "__main__":
+    tactile = tactile_learner(
+        workspace=None,
+        tactile_root="/mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel/rgb/GelSightL_1714047492181235",
+        description_save_root=None,
+        dataset_root="/mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel",
+        sensor_config_path="/home/jackeyjin/data_helper/datasets/demo_calibration/gelsight_left",
+        sensor_name=["gelsight"],
+        model_file_path="/home/jackeyjin/data_helper/robot_data/configs/nnmini.pt",
+        gpuorcpu="cpu",
+        use_video=False,
+        use_calibrate=False,
+        use_undistort=True,
+        border_size=25,
+        is_save_video=False,
+    )
+    img_list = [
+        "/mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel/rgb/GelSightL_1714047492181235/rgb_0.jpg",
+        "/mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel/rgb/GelSightL_1714047492181235/rgb_137.jpg"
+    ]
+    tactile.gen_per_optical_flow_description(img_list)
