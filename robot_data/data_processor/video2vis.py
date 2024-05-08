@@ -109,7 +109,7 @@ class video2vis(BaseDataProcessor):
         frame_infos = meta_info["frame_info"]
 
         fig3Dpos = plt.figure(figsize=(10,8), dpi=320)
-        ax3Dpos = Axes3D(self.fig3Dpos, auto_add_to_figure=False)  #实例化Axes3D对象，创建3D图像（注意：见下方注释）
+        ax3Dpos = Axes3D(fig3Dpos, auto_add_to_figure=False)  #实例化Axes3D对象，创建3D图像（注意：见下方注释）
         fig3Dpos.add_axes(ax3Dpos) # 手动将3D图像添加到画布对象上
         fig2D = plt.figure(figsize=(10,8), dpi=320)
         ax2D = fig2D.add_subplot(1, 1, 1)

@@ -10,3 +10,5 @@ from .gen_depth_3d import *
 from .gen_depth_2d import *
 from .gen_force_2d import *
 from .img2video import *
+from .gen_dataset_info import *
+from .tactile_perception import *

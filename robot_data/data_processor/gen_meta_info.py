@@ -12,6 +12,7 @@ import numpy as np
 import copy
 from robot_data.utils.registry_factory import DATA_PROCESSER_REGISTRY
 from robot_data.utils.robot_timestamp import RobotTimestampsIncoder
+from robot_data.utils.utils import get_dirpath_from_key
 
 @DATA_PROCESSER_REGISTRY.register("GenMetaINFO")
 class genmetaINFO(BaseDataProcessor):
@@ -19,16 +20,10 @@ class genmetaINFO(BaseDataProcessor):
     def __init__(
         self,
         workspace,
-        json_root,
         dataset_root,
-        task_name,
-        case_name,
         **kwargs,
     ):
         super().__init__(workspace, **kwargs)
-        self.task_name = task_name
-        self.case_name = case_name
-        self.json_root = json_root
         self.dataset_root = dataset_root
         self.timestamp_maker = RobotTimestampsIncoder()
 
@@ -38,9 +33,11 @@ class genmetaINFO(BaseDataProcessor):
         print(f"PID[{os.getpid()}: Load json file - {json_path}")
         case_name = meta_info["case_info"]["case_name"]
         task_name = meta_info["case_info"]["task_name"]
-        assert case_name == self.case_name, "Not the same case: meta-{}/config-{}".format(case_name, self.case_name)
-        assert task_name == self.task_name, "Not the same task: meta-{}/config-{}".format(task_name, self.task_name)
-        root_path = os.path.join(self.dataset_root, task_name, case_name)
+        case_name_evl = json_path.split("/")[-5]
+        task_name_evl = json_path.split("/")[-6]
+        assert case_name == case_name_evl, "Not the same case: [meta]--<{}>, [config]--<{}>".format(case_name, case_name_evl)
+        assert task_name == task_name_evl, "Not the same task: [meta]--<{}>, [config]--<{}>".format(task_name, task_name_evl)
+        root_path = get_dirpath_from_key(json_path, "raw_meta")
         frame_infos = meta_info["frame_info"]
         for idx in frame_infos:
             frame_info = frame_infos[idx]
@@ -57,10 +54,9 @@ class genmetaINFO(BaseDataProcessor):
     def process(self, meta, task_infos):
         results = []
         json_paths = []
-        self.json_root = os.path.join(self.json_root, self.task_name, self.case_name)
-        for dirpath, dirnames, filenames in os.walk(self.json_root):
+        for dirpath, dirnames, filenames in os.walk(self.dataset_root):
             for filename in filenames:
-                if filename.endswith(".json"):
+                if filename.endswith("result.json"):
                     json_paths.append(os.path.join(dirpath, filename))
         if self.pool > 1:
             args_list = []
@@ -75,7 +71,7 @@ class genmetaINFO(BaseDataProcessor):
                 self.logger.info(
                     f"Start process {idx+1}/{len(json_paths)}")
                 results.append(
-                    self.gen_per_meta(json_path))
+                    self.gen_per_meta(meta_info, json_path))
         for meta_infos in results:
             # TODO 试试看不写这句行不行
             meta.append(meta_infos)

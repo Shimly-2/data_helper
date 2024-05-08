@@ -63,7 +63,7 @@ class meta_video2img(BaseDataProcessor):
             vc = cv2.VideoCapture(video_path)
             view = video_path.split("/")[-1].split(".")[0]
             cap_num = int(vc.get(7))
-            assert cap_num == meta_info["case_info"]["steps"], f"The video does't match meta file - {video_path}-{cap_num}/meta-{steps}"
+            assert cap_num == meta_info["case_info"]["steps"], f"The video {video_path} does't match meta file, [cap_num]--<{cap_num}>, [meta]--<{steps}>"
             cap_width = math.ceil(vc.get(3))
             cap_height = math.ceil(vc.get(4))
             # assert cap_width==3840 and cap_height==1920
