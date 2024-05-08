@@ -1,6 +1,7 @@
 import os
 import os.path as osp
 import json
+import numpy as np
 
 def get_dirpath_from_key(path, key):
     parts = path.split('/')
@@ -55,3 +56,15 @@ def read_json(path):
         lines = f.readlines()
     meta_json = [json.loads(line) for line in lines]
     return meta_json
+
+def dict2list(data):
+    result = []
+    if isinstance(data, (list, np.ndarray, tuple)):
+        for item in data:
+            result.extend(dict2list(item))
+    elif isinstance(data, dict):
+        for value in data.values():
+            result.extend(dict2list(value))
+    else:
+        result.append(data)
+    return result
