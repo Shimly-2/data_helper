@@ -12,3 +12,6 @@ from .gen_force_2d import *
 from .img2video import *
 from .gen_dataset_info import *
 from .tactile_perception import *
+from .multi_window_split import *
+from .shuffle_window_set import *
+from .resize_video import *

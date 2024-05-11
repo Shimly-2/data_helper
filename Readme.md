@@ -119,3 +119,67 @@ zsh run.sh process_conf/20231212_tactile_learner.yaml
              ├─...
              └─uv_flow_x.jpg
 ```
+
+### version for tactile2clip
+```bash
+# use multi_window_split.yaml to gen window and train set
+zsh run.sh process_conf/multi_window_split.yaml
+```
+
+### input data format
+```bash
+└─datasets
+    └─[task_name]
+        ├─[case_name_1]
+        │  └─raw_meta
+        │     ├─[object_name_1]
+        │     │  ├─[epoch_0]
+        │     │  │  ├─front.mp4
+        │     │  │  ├─fronttop.mp4
+        │     │  │  ├─root.mp4
+        │     │  │  ├─side.mp4
+        │     │  │  ├─topdown.mp4
+        │     │  │  ├─wrist.mp4
+        │     │  │  ├─gelsightL.mp4
+        │     │  │  ├─gelsightR.mp4
+        │     │  │  └─result.json
+        │     │  ├─...
+        │     │  └─[epoch_x]
+        │     ├─...
+        │     └─[object_name_x]
+        ├─...
+        └─[case_name_x]
+```
+
+### output data format
+```bash
+└─datasets
+    └─[task_name]
+        ├─[case_name_1]
+        │  ├─raw_meta
+        │  │  ├─[object_name_1]
+        │  │  │  ├─[epoch_0]
+        │  │  │  │  ├─front.mp4
+        │  │  │  │  ├─front#s224.mp4
+        │  │  │  │  ├─fronttop.mp4
+        │  │  │  │  ├─fronttop#s224.mp4
+        │  │  │  │  ├─root.mp4
+        │  │  │  │  ├─side.mp4
+        │  │  │  │  ├─topdown.mp4
+        │  │  │  │  ├─wrist.mp4
+        │  │  │  │  ├─gelsightL.mp4
+        │  │  │  │  ├─gelsightL#s224.mp4
+        │  │  │  │  ├─gelsightR.mp4
+        │  │  │  │  ├─gelsightR#s224.mp4
+        │  │  │  │  └─result.json
+        │  │  │  │  └─window_set.json
+        │  │  │  ├─...
+        │  │  │  └─[epoch_x]
+        │  │  ├─...
+        │  │  └─[object_name_x]
+        │  ├─train_sec_{}_seed_{}.json
+        │  ├─val_sec_{}_seed_{}.json
+        │  └─test_sec_{}_seed_{}.json
+        ├─...
+        └─[case_name_x]
+```
