@@ -1,0 +1,135 @@
+task_name: &task_name DROID_dataset
+case_name: &case_name droid_100
+workspace: &workspace /home/jackeyjin/data_helper/datasets/demo_img/task_name
+dataset_root: &dataset_root /home/jackeyjin/dataset/DROID_dataset
+log_file_dir: &log_file_dir /home/jackeyjin/data_helper/datasets/demo_img/task_name/log
+CPU_PER_TASK: &CPU_PER_TASK 1
+
+data_processor:
+  - type: ConvertFromDROID
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      split_set: train
+      dataset_key: droid_100
+      obs_image: ["exterior_image_1_left", "exterior_image_2_left", "wrist_image_left"]
+      img_size: [320, 180]
+      fps: 10
+      random_seed: 0
+  - type: ConvertFromDROID
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      split_set: val
+      dataset_key: droid_100
+      obs_image: ["exterior_image_1_left", "exterior_image_2_left", "wrist_image_left"]
+      img_size: [320, 180]
+      fps: 10
+      random_seed: 0
+  - type: ConvertFromDROID
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      split_set: test
+      dataset_key: droid_100
+      obs_image: ["exterior_image_1_left", "exterior_image_2_left", "wrist_image_left"]
+      img_size: [320, 180]
+      fps: 10
+      random_seed: 0
+  - type: ResizeVideo
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      target_cam_view: wrist_image_left
+      target_tactile_view: None
+      remove_origin: True
+      crop: False
+      aw: 0.5
+      ah: 0.5
+      fps: 10
+      size: 224
+  - type: MultiWindowSplit
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      window_sec: 50
+      target_cam_view: wrist_image_left
+      target_tactile_view: None
+  - type: ShuffleWindowSet
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      window_sec: 50
+      split_set: train
+      random_seed: 0
+  - type: ShuffleWindowSet
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      window_sec: 50
+      split_set: val
+      random_seed: 0
+  - type: ShuffleWindowSet
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      window_sec: 50
+      split_set: test
+      random_seed: 0
+  # - type: MulitWindowSplitDROID
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     window_sec: 50
+  #     split_set: train
+  #     dataset_key: droid_100
+  #     random_seed: 0
+  # - type: MulitWindowSplitDROID
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     window_sec: 50
+  #     split_set: val
+  #     dataset_key: droid_100
+  #     random_seed: 0
+  # - type: MulitWindowSplitDROID
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     window_sec: 50
+  #     split_set: test
+  #     dataset_key: droid_100
+  #     random_seed: 0
+  # - type: ShuffleWindowSetDROID
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     window_sec: 50
+  #     split_set: ["train", "val", "test"]
+  #     dataset_key: droid_100
+  #     random_seed: 0
+  

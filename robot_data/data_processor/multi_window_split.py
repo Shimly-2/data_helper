@@ -48,8 +48,8 @@ class MultiWindowSplit(BaseDataProcessor):
         task_name = meta_info["case_info"]["task_name"]
         case_name_evl = json_path.split("/")[-5]
         task_name_evl = json_path.split("/")[-6]
-        assert case_name == case_name_evl, "Not the same case: [meta]--<{}>, [config]--<{}>".format(case_name, case_name_evl)
-        assert task_name == task_name_evl, "Not the same task: [meta]--<{}>, [config]--<{}>".format(task_name, task_name_evl)
+        # assert case_name == case_name_evl, "Not the same case: [meta]--<{}>, [config]--<{}>".format(case_name, case_name_evl)
+        # assert task_name == task_name_evl, "Not the same task: [meta]--<{}>, [config]--<{}>".format(task_name, task_name_evl)
         root_path = get_dirpath_from_key(json_path, "raw_meta")
         frame_infos = meta_info["frame_info"]
         window_set = []
@@ -66,11 +66,15 @@ class MultiWindowSplit(BaseDataProcessor):
             cam_view_info = frame_info["cam_views"][self.target_cam_view]
             cam_view_info["rgb_video_path"] = os.path.join(root_path, cam_view_info["rgb_video_path"]).replace(".mp4", "#s224.mp4")
             per_window["video_path"] = cam_view_info["rgb_video_path"]
-            tactile_view_info = frame_info["tactile_views"][self.target_tactile_view]
-            tactile_view_info["rgb_video_path"] = os.path.join(root_path, tactile_view_info["rgb_video_path"]).replace(".mp4", "#s224.mp4")
-            per_window["tactile_path"] = tactile_view_info["rgb_video_path"]
+            if "tactile_views" in frame_info:
+                tactile_view_info = frame_info["tactile_views"][self.target_tactile_view]
+                tactile_view_info["rgb_video_path"] = os.path.join(root_path, tactile_view_info["rgb_video_path"]).replace(".mp4", "#s224.mp4")
+                per_window["tactile_path"] = tactile_view_info["rgb_video_path"]
             per_window["label"] = "move"
-            per_window["joint"] = dict2list(frame_info["jointstates"])[:7]
+            if isinstance(frame_info["jointstates"], dict):
+                per_window["joint"] = dict2list(frame_info["jointstates"])[:7]
+            elif isinstance(frame_info["jointstates"], list):
+                per_window["joint"] = frame_info["jointstates"][:7]
             per_window["joint"].append(frame_info["commended"]["gripper_closedness_commanded"])
             window_set.append(per_window)
         with open(os.path.join(os.path.dirname(json_path), "window_set.json"), "w") as f:

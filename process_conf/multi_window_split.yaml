@@ -14,6 +14,7 @@ data_processor:
       dataset_root: *dataset_root
       target_cam_view: front
       target_tactile_view: gelsightL
+      remove_origin: False
       aw: 0.5
       ah: 0.5
       fps: 10

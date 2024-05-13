@@ -15,3 +15,6 @@ from .tactile_perception import *
 from .multi_window_split import *
 from .shuffle_window_set import *
 from .resize_video import *
+from .shuffle_window_set_droid import *
+from .multi_window_split_droid import *
+from .convert_from_droid import *

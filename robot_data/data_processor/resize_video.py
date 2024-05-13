@@ -27,6 +27,8 @@ class ResizeVideo(BaseDataProcessor):
         ah: float=0.5,
         fps: int=10,
         size: int=224,
+        remove_origin: bool=False,
+        crop: bool=False,
         **kwargs,
     ):
         super().__init__(workspace, **kwargs)
@@ -37,6 +39,8 @@ class ResizeVideo(BaseDataProcessor):
         self.size = size
         self.target_cam_view = target_cam_view
         self.target_tactile_view = target_tactile_view
+        self.remove_origin = remove_origin
+        self.crop = crop
         self.timestamp_maker = RobotTimestampsIncoder()
 
     def preprocess_videos(self, video_path, output_dir):
@@ -66,7 +70,10 @@ class ResizeVideo(BaseDataProcessor):
                 if not ret:
                     break
                 # Crop the frame
-                cropped_frame = frame[crop_y:crop_y+crop_height, crop_x:crop_x+crop_width]
+                if self.crop:
+                    cropped_frame = frame[crop_y:crop_y+crop_height, crop_x:crop_x+crop_width]
+                else:
+                    cropped_frame = frame
                 # Resize the frame
                 resized_frame = cv2.resize(cropped_frame, (self.size, self.size))
                 # Write the frame to output video
@@ -74,6 +81,8 @@ class ResizeVideo(BaseDataProcessor):
             # Release VideoCapture and VideoWriter objects
             cap.release()
             out.release()
+        if self.remove_origin:
+            os.remove(raw_video_path)
 
     def process(self, meta, task_infos):
         # meta = dict()

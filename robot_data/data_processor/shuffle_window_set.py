@@ -52,11 +52,15 @@ class ShuffleWindowSet(BaseDataProcessor):
         for json_path in tqdm(json_paths, colour='green', desc=f'PID[{os.getpid()}]'):
             with open(json_path,"r") as f:
                 meta_info = json.load(f)
-            # print(f"PID[{os.getpid()}: Load json file - {json_path}")
             window_set.extend(meta_info)
         random.seed(self.random_seed)
-        random.shuffle(window_set)    
-        self.divideTrainValTest(window_set, root_path, self.split_set)
+        random.shuffle(window_set)
+        if isinstance(self.split_set, str):
+            with open(os.path.join(root_path, f"{self.split_set}_sec_{self.window_sec}_seed_{self.random_seed}.json"), "w") as f:
+                json.dump(window_set, f) #, indent=4)
+            self.logger.info(f"{self.split_set} num: {len(window_set)}") 
+        elif isinstance(self.split_set, list):
+            self.divideTrainValTest(window_set, root_path, self.split_set)
         return meta_info
         
     def process(self, meta, task_infos):
@@ -64,8 +68,12 @@ class ShuffleWindowSet(BaseDataProcessor):
         json_paths = []
         for dirpath, dirnames, filenames in os.walk(self.dataset_root):
             for filename in filenames:
-                if filename.endswith("window_set.json"):
-                    json_paths.append(os.path.join(dirpath, filename))
+                if isinstance(self.split_set, list):
+                    if filename.endswith("window_set.json"):
+                        json_paths.append(os.path.join(dirpath, filename))
+                elif isinstance(self.split_set, str):
+                    if filename.endswith("window_set.json") and self.split_set in dirpath:
+                        json_paths.append(os.path.join(dirpath, filename))
         self.merge_regen(json_paths)
         for meta_infos in results:
             # TODO 试试看不写这句行不行
