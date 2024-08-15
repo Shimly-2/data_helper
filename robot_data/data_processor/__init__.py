@@ -18,3 +18,5 @@ from .resize_video import *
 from .shuffle_window_set_droid import *
 from .multi_window_split_droid import *
 from .convert_from_droid import *
+from .description_correct import *
+from .description_templet import *

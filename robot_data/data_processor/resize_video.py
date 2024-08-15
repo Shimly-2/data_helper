@@ -92,8 +92,12 @@ class ResizeVideo(BaseDataProcessor):
         for dirpath, dirnames, filenames in os.walk(self.dataset_root):
             for filename in filenames:
                 if filename.endswith(".mp4") and filename.find("#") < 0:
-                    if filename.find(self.target_cam_view) >= 0 or filename.find(self.target_tactile_view) >= 0:
-                        video_paths.append(os.path.join(dirpath, filename))
+                    if isinstance(self.target_tactile_view, list):
+                        if filename.find(self.target_cam_view) >= 0 or filename.find(self.target_tactile_view[0]) >= 0 or filename.find(self.target_tactile_view[1]) >= 0:
+                            video_paths.append(os.path.join(dirpath, filename))
+                    else:
+                        if filename.find(self.target_cam_view) >= 0 or filename.find(self.target_tactile_view) >= 0:
+                            video_paths.append(os.path.join(dirpath, filename))
         if self.pool > 1:
             args_list = []
             for video_path in video_paths:  #依次读取视频文件

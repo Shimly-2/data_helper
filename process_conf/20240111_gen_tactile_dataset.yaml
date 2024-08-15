@@ -1,8 +1,8 @@
 task_name: &task_name panda_pick
 case_name: &case_name 20231123_pick-panda-random_object_low_action_space
-workspace: &workspace /mnt/afs/jinyiyang/workspace/codebase/data_helper/datasets/demo_img/task_name
-dataset_root: &dataset_root /mnt/afs/jinyiyang/dataset/sensecore_dataset_v2
-log_file_dir: &log_file_dir /mnt/afs/jinyiyang/workspace/codebase/data_helper/datasets/demo_img/task_name/log
+workspace: &workspace /remote-home/1950049/workspace/codebase/data_helper/datasets/demo_img/task_name
+dataset_root: &dataset_root /remote-home/1950049/dataset/sensecore_dataset_test
+log_file_dir: &log_file_dir /remote-home/1950049/workspace/codebase/data_helper/datasets/demo_img/task_name/log
 CPU_PER_TASK: &CPU_PER_TASK 14
 
 data_processor:

@@ -24,6 +24,7 @@ class MultiWindowSplit(BaseDataProcessor):
         window_sec,
         target_cam_view,
         target_tactile_view,
+        suffix=None,
         **kwargs,
     ):
         super().__init__(workspace, **kwargs)
@@ -31,12 +32,17 @@ class MultiWindowSplit(BaseDataProcessor):
         self.window_sec = window_sec
         self.target_cam_view = target_cam_view
         self.target_tactile_view = target_tactile_view
+        self.suffix = suffix
         self.timestamp_maker = RobotTimestampsIncoder()
     
     def check_instructions_continues(self, start, end, frame_infos):
         for idx in range(start, end):
-            if frame_infos[str(idx)]["instruction"] != frame_infos[str(start)]["instruction"]:
-                return False
+            if self.suffix != None:
+                if frame_infos[str(idx)][f"instruction_{self.suffix}"] != frame_infos[str(start)][f"instruction_{self.suffix}"]:
+                    return False
+            else:
+                if frame_infos[str(idx)]["instruction"] != frame_infos[str(start)]["instruction"]:
+                    return False
         return True
 
 
@@ -62,14 +68,24 @@ class MultiWindowSplit(BaseDataProcessor):
             if not self.check_instructions_continues(per_window["window_start"], per_window["window_end"], frame_infos):
                 continue
             frame_info = frame_infos[idx]
-            per_window["instruction"] = frame_info["instruction"]
+            if self.suffix != None:
+                per_window["instruction"] = frame_info[f"instruction_{self.suffix}"]
+            else:
+                per_window["instruction"] = frame_info["instruction"]
             cam_view_info = frame_info["cam_views"][self.target_cam_view]
             cam_view_info["rgb_video_path"] = os.path.join(root_path, cam_view_info["rgb_video_path"]).replace(".mp4", "#s224.mp4")
             per_window["video_path"] = cam_view_info["rgb_video_path"]
             if "tactile_views" in frame_info:
-                tactile_view_info = frame_info["tactile_views"][self.target_tactile_view]
-                tactile_view_info["rgb_video_path"] = os.path.join(root_path, tactile_view_info["rgb_video_path"]).replace(".mp4", "#s224.mp4")
-                per_window["tactile_path"] = tactile_view_info["rgb_video_path"]
+                if isinstance(self.target_tactile_view, list):
+                    per_window["tactile_path"] = []
+                    for target_tactile_view in self.target_tactile_view:
+                        tactile_view_info = frame_info["tactile_views"][target_tactile_view]
+                        tactile_view_info["rgb_video_path"] = os.path.join(root_path, tactile_view_info["rgb_video_path"]).replace(".mp4", "#s224.mp4")
+                        per_window["tactile_path"].append(tactile_view_info["rgb_video_path"])
+                else:
+                    tactile_view_info = frame_info["tactile_views"][self.target_tactile_view]
+                    tactile_view_info["rgb_video_path"] = os.path.join(root_path, tactile_view_info["rgb_video_path"]).replace(".mp4", "#s224.mp4")
+                    per_window["tactile_path"] = tactile_view_info["rgb_video_path"]
             per_window["label"] = "move"
             if isinstance(frame_info["jointstates"], dict):
                 per_window["joint"] = dict2list(frame_info["jointstates"])[:7]
