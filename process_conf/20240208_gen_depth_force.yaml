@@ -1,0 +1,72 @@
+task_name: &task_name task_name
+workspace: &workspace /home/jackeyjin/data_helper/datasets/demo_img/task_name
+log_file_dir: &log_file_dir /home/jackeyjin/data_helper/datasets/demo_img/task_name/log
+table_path: &table_path /home/jackeyjin/gelsight_cali/cali_table/gelsight_cali_table_smooth.npy
+# ref_img_path: &ref_img_path /home/jackeyjin/data_helper/datasets/subtask_datasets/A_only_test3/rgb/GelSightL_1707331808350087_1_40/rgb_0.jpg
+# dataset_root: &dataset_root /home/jackeyjin/data_helper/datasets/subtask_datasets/A_only_test3
+ref_img_path: &ref_img_path /mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel/rgb/GelSightL_1714047492181235/rgb_0.jpg
+dataset_root: &dataset_root /mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel
+CPU_PER_TASK: &CPU_PER_TASK 1
+
+data_processor:
+  # - type: Video2ImgV2
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     video_root: *dataset_root
+  #     save_framerate: 1
+  # - type: GenDepth3D
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     table_path: *table_path
+  #     ref_img_path: *ref_img_path
+  #     dataset_root: *dataset_root
+  #     pad_V: 0
+  #     pad_H: 0
+  # - type: GenDepth2D
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     table_path: *table_path
+  #     ref_img_path: *ref_img_path
+  #     dataset_root: *dataset_root
+  #     pad_V: 0
+  #     pad_H: 0
+  # - type: GenForce2D
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     table_path: *table_path
+  #     ref_img_path: *ref_img_path
+  #     dataset_root: *dataset_root
+  #     pad_V: 0
+  #     pad_H: 0
+  - type: Tactile_Learner
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      tactile_root: /mnt/gsrobotics-Ubuntu18/examples/ros/20240206_data/light_auto_sel/rgb/GelSightL_1714047492181235
+      description_save_root: /home/jackeyjin/data_helper/datasets/demo_img
+      model_file_path: /home/jackeyjin/data_helper/robot_data/configs/nnmini.pt
+      dataset_root: *dataset_root
+      sensor_config_path: /home/jackeyjin/data_helper/datasets/demo_calibration/gelsight_left
+      sensor_name: ["gelsight"]
+      gpuorcpu: "cpu"
+      use_video: False
+      use_calibrate: False
+      border_size: 25
+      is_save_video: False
+  - type: Img2Video
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK 
+      dataset_root: *dataset_root
+      views: ["depth3D", "flow", "uv_flow"] # "depth3D", "force2D", "contact", "depth2D", "flow", "uv_flow"
+      fps: 20

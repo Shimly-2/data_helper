@@ -1,0 +1,67 @@
+task_name: &task_name panda_pick
+case_name: &case_name 20231123_pick-panda-random_object_low_action_space
+workspace: &workspace /remote-home/1950049/data_helper/datasets/demo_img/task_name
+dataset_root: &dataset_root /remote-home/1950049/dataset/simulation_dataset
+log_file_dir: &log_file_dir /remote-home/1950049/data_helper/datasets/demo_img/task_name/log
+CPU_PER_TASK: &CPU_PER_TASK 2
+
+data_processor:
+  - type: GenDatasetINFO
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+  - type: GenMetaINFO
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+  # - type: MetaVideo2Img
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     video_root: *dataset_root
+  #     save_framerate: 1
+  - type: DescriptionTmp
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      suffix: &suffix gpt
+  # - type: ResizeVideo
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     target_cam_view: wrist
+  #     target_tactile_view: ["gelsightL", "gelsightR"]
+  #     remove_origin: False
+  #     aw: 0.5
+  #     ah: 0.5
+  #     fps: 10
+  #     size: 224
+  # - type: MultiWindowSplit
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     window_sec: 1
+  #     target_cam_view: wrist
+  #     target_tactile_view: ["gelsightL", "gelsightR"]
+  #     suffix: *suffix
+  # - type: ShuffleWindowSet
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     window_sec: 1
+  #     split_set: [8, 1, 1]
+  #     random_seed: 0
+  

@@ -1,0 +1,17 @@
+task_name: &task_name cr5_pick
+case_name: &case_name 20231123_pick-cr5-random_object_drop_after_lift_straight_action
+workspace: &workspace /home/jackeyjin/data_helper/datasets/demo_img/task_name
+log_file_dir: &log_file_dir /home/jackeyjin/data_helper/datasets/demo_img/task_name/log
+CPU_PER_TASK: &CPU_PER_TASK 4
+
+data_processor:
+  - type: Video2Img
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      video_root: /home/jackeyjin/data_helper/datasets
+      new_img_save_root: /home/jackeyjin/data_helper/datasets
+      task_name: *task_name
+      case_name: *case_name
+      save_framerate: 1

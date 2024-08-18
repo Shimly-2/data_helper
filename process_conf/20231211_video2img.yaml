@@ -9,6 +9,6 @@ data_processor:
       workspace: *workspace
       log_file_dir: *log_file_dir
       multiprocess_pool: *CPU_PER_TASK
-      video_root: /home/jackeyjin/data_helper/datasets/demo_video
+      video_root: /home/jackeyjin/data_helper/datasets/demo_video/full_test
       new_img_save_root: /home/jackeyjin/data_helper/datasets/demo_img
       save_framerate: 3

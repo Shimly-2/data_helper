@@ -6,6 +6,7 @@ from abc import ABC, abstractmethod
 from multiprocessing_logging import install_mp_handler
 from multiprocessing import Pool, Lock, Value
 import time
+from tqdm import tqdm
 
 logging.basicConfig(
     level=logging.INFO,
@@ -117,13 +118,17 @@ class BaseDataProcessor(ABC):
             total_time.value += (end_time - start_time)  # type: ignore
         eta_time = (total_time.value / counter.value) * (  # type: ignore
             total.value - counter.value) / 60  # type: ignore
-        self.logger.info(
-            f"Process : {pid} : finish multiprocess task [{counter.value}] / [{total.value}], ETA: {int(eta_time)} minutes"  # type: ignore
-        )
+        # self.logger.info(
+        #     f"Process : {pid} : finish multiprocess task [{counter.value}] / [{total.value}], ETA: {int(eta_time)} minutes"  # type: ignore
+        # )
         return res
 
     def multiprocess_run(self, func, args_list):
         global total, counter, total_time, lock
+        # ------------- 配置好进度条 ------------- 
+        pbar = tqdm(total=len(args_list), colour='blue', desc=f'Multiprocessing')
+        update = lambda *args: pbar.update()
+        # --------------------------------------
         if self.pool <= 1:
             self.logger.warn(
                 'define pool num large than 1 if using multiprocess_run')
@@ -132,11 +137,11 @@ class BaseDataProcessor(ABC):
         total.value = len(args_list)
         counter.value = 0
         total_time.value = 0.0
-        self.logger.info(f'start multiprocessing, task nums : {total.value}')
+        # self.logger.info(f'start multiprocessing, task nums : {total.value}')
 
         results = []
         for args in args_list:
-            results.append(pool.apply_async(self.sub_func, args=(func, *args)))
+            results.append(pool.apply_async(self.sub_func, args=(func, *args), callback=update))
 
         pool.close()
         pool.join()
@@ -145,40 +150,40 @@ class BaseDataProcessor(ABC):
 
         return results
 
-    def __call__(self, meta=None, task_infos=None):
-        if not meta:
-            meta = self.get_offline_meta()
-        if not task_infos:
-            task_infos = self.get_offline_task_infos()
+    def __call__(self, meta=[], task_infos=None):
+        # if not meta:
+        #     meta = self.get_offline_meta()
+        # if not task_infos:
+        #     task_infos = self.get_offline_task_infos()
 
-        if self.manual_meta_setting:
-            if self.manual_meta_setting.get("set_before_process", False):
-                for _, v in meta.items():
-                    v.update(self.manual_meta_setting)
+        # if self.manual_meta_setting:
+        #     if self.manual_meta_setting.get("set_before_process", False):
+        #         for _, v in meta.items():
+        #             v.update(self.manual_meta_setting)
 
-        if self.manual_task_infos_setting:
-            if self.manual_task_infos_setting.get("set_before_process", False):
-                task_infos.update(self.manual_task_infos_setting)
+        # if self.manual_task_infos_setting:
+        #     if self.manual_task_infos_setting.get("set_before_process", False):
+        #         task_infos.update(self.manual_task_infos_setting)
 
         meta, task_infos = self.process(meta=meta, task_infos=task_infos)
 
-        if self.manual_meta_setting:
-            if not self.manual_meta_setting.get("set_before_process", False):
-                for _, v in meta.items():
-                    v.update(self.manual_meta_setting)
+        # if self.manual_meta_setting:
+        #     if not self.manual_meta_setting.get("set_before_process", False):
+        #         for _, v in meta.items():
+        #             v.update(self.manual_meta_setting)
 
-        if self.manual_task_infos_setting:
-            if not self.manual_task_infos_setting.get("set_before_process",
-                                                      False):
-                task_infos.update(self.manual_task_infos_setting)
+        # if self.manual_task_infos_setting:
+        #     if not self.manual_task_infos_setting.get("set_before_process",
+        #                                               False):
+        #         task_infos.update(self.manual_task_infos_setting)
 
-        if self.update_meta_file:
-            autolabel_meta_path = osp.join(self.workspace, self.meta_save_name)
-            for case_name, m in meta.items():
-                if "case_name" not in m:
-                    m["case_name"] = case_name
-            write_json(list(meta.values()), autolabel_meta_path)
-        if self.update_task_infos_file:
-            task_infos_path = osp.join(self.workspace,
-                                       self.task_infos_save_name)
-            write_json(task_infos, task_infos_path)
+        # if self.update_meta_file:
+        #     autolabel_meta_path = osp.join(self.workspace, self.meta_save_name)
+        #     for case_name, m in meta.items():
+        #         if "case_name" not in m:
+        #             m["case_name"] = case_name
+        #     write_json(list(meta.values()), autolabel_meta_path)
+        # if self.update_task_infos_file:
+        #     task_infos_path = osp.join(self.workspace,
+        #                                self.task_infos_save_name)
+        #     write_json(task_infos, task_infos_path)

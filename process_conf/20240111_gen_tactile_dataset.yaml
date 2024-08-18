@@ -1,0 +1,38 @@
+task_name: &task_name panda_pick
+case_name: &case_name 20231123_pick-panda-random_object_low_action_space
+workspace: &workspace /remote-home/1950049/workspace/codebase/data_helper/datasets/demo_img/task_name
+dataset_root: &dataset_root /remote-home/1950049/dataset/sensecore_dataset_test
+log_file_dir: &log_file_dir /remote-home/1950049/workspace/codebase/data_helper/datasets/demo_img/task_name/log
+CPU_PER_TASK: &CPU_PER_TASK 14
+
+data_processor:
+  - type: GenDatasetINFO
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+  - type: GenMetaINFO
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+  - type: MetaVideo2Img
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      video_root: *dataset_root
+      save_framerate: 1
+  # - type: Video2Vis
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     task_name: *task_name
+  #     case_name: *case_name
+  #     cam_views: ["front", "fronttop", "topdown", "wrist", "side", "root"]
+  #     tactile_views: ["gelsightL", "gelsightR"]
+  #     fps: 10
