@@ -1,0 +1,81 @@
+task_name: &task_name poselt
+case_name: &case_name grasp_multi_objects
+workspace: &workspace /remote-home/1950049/data_helper/datasets/demo_img/task_name
+dataset_root: &dataset_root /remote-home/1950049/dataset/PoseIt_dataset_small
+new_dataset_root: &new_dataset_root /remote-home/1950049/dataset/PoseIt_dataset_simplfy
+log_file_dir: &log_file_dir /remote-home/1950049/data_helper/datasets/demo_img/task_name/log
+CPU_PER_TASK: &CPU_PER_TASK 2
+
+data_processor:
+  - type: GenPoseltMetaINFO
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: 1
+      dataset_root: *dataset_root
+      collect_keys: ["depth", "gelsight", "rgb", "side_cam", "top_cam"]
+      collect_csvs: ["f_t", "gripper", "label", "robot", "stages"]
+      cam_views: ["side", "top", "fronttop"]
+      cam_views_mapping: {"side":"side_cam", "top":"top_cam", "fronttop":"rgb"}
+      tactile_views: ["gelsightL"]
+      tactile_views_mapping: {"gelsightL":"gelsight"}
+  - type: AnalyzsPoselt
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+  - type: TurnLabelPoselt
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+  - type: DescriptionPoselt
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      suffix: &suffix gpt
+  - type: SimplfyPoseltDataset
+    kwargs:
+      workspace: *workspace
+      log_file_dir: *log_file_dir
+      multiprocess_pool: *CPU_PER_TASK
+      dataset_root: *dataset_root
+      new_dataset_root: *new_dataset_root
+
+  # - type: ResizeVideo
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     target_cam_view: wrist
+  #     target_tactile_view: ["gelsightL", "gelsightR"]
+  #     remove_origin: False
+  #     aw: 0.5
+  #     ah: 0.5
+  #     fps: 10
+  #     size: 224
+  # - type: MultiWindowSplit
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     window_sec: 1
+  #     target_cam_view: wrist
+  #     target_tactile_view: ["gelsightL", "gelsightR"]
+  #     suffix: *suffix
+  # - type: ShuffleWindowSet
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  #     window_sec: 1
+  #     split_set: [8, 1, 1]
+  #     random_seed: 0
+  

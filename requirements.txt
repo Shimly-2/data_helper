@@ -7,3 +7,4 @@ Pillow
 tqdm
 multiprocessing_logging
 seaborn
+roboticstoolbox-python
