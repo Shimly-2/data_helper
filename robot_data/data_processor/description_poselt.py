@@ -334,6 +334,41 @@ description = {
     }
 }
 
+options = {
+    "object": [
+        "rubiks_cube", "tomato_soup_can", "soap", "plastic_apple", "two_color_hammer", "sugar_box", "shampoo", "magic_clean"
+    ],
+    "material": [
+        "plastic", "metal", "glycerin", "glass", "cardboard"
+    ],
+    "texture": [
+        "smooth", "rough"
+    ],
+    "surface": [
+        "flat", "glossy"
+    ],
+    "position": [
+        "center", 
+    ],
+    "shape": [
+        "cuboid", "cylindrical", "rectangular", "round", "oval"
+    ],
+    "size": [
+        "small", "medium"
+    ],
+    "weight": [
+        "light", "heavy"
+    ],
+    "color": [
+        "colorful", "red", "blue", "silver", "white", "green"
+    ],
+    "deformation": [
+        "no-deformation", "slight-deformation"
+    ]
+}
+
+fixed_prompt = "At {position_option}, there is a {color_option} {shape_option} {object_option} made of {material_option} with a {texture_option} {surface_option}, its size is {size_option}, weight is {weight_option}, and it shows {deformation_option} when interacted with."
+
 @DATA_PROCESSER_REGISTRY.register("DescriptionPoselt")
 class DescriptionPoselt(BaseDataProcessor):
     """decription correct"""
@@ -360,10 +395,12 @@ class DescriptionPoselt(BaseDataProcessor):
         # frame_infos = meta_info["frame_info"]
         # window_set = []
         for idx in tqdm(meta_info["frame_info"], colour='green', desc=f'PID[{os.getpid()}]'):
+            action_stage = meta_info["frame_info"][idx]["action_stage"]
+            grasp_label = meta_info["frame_info"][idx]["grasp_label"]
             if self.suffix != None:
-                meta_info["frame_info"][idx][f"instruction_{self.suffix}"] = f"Grasp the {object_name}"
+                meta_info["frame_info"][idx][f"instruction_{self.suffix}"] = f"The robot arm is {action_stage} the {object_name}, the result is {grasp_label}."
             else:
-                meta_info["frame_info"][idx]["instruction"] = f"Grasp the {object_name}"
+                meta_info["frame_info"][idx]["instruction"] = f"The robot arm is {action_stage} the {object_name}, the result is {grasp_label}."
             # meta_info["frame_info"][idx]["label"] = labels["Move"][object_name]
             # meta_info["frame_info"][idx]["action"] = "move"
             # meta_info["frame_info"][idx]["contact_state"] = "no-contact"

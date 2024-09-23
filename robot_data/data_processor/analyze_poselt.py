@@ -13,6 +13,7 @@ import copy
 from robot_data.utils.registry_factory import DATA_PROCESSER_REGISTRY
 from robot_data.utils.robot_timestamp import RobotTimestampsIncoder
 from robot_data.utils.utils import get_dirpath_from_key
+from collections import defaultdict
 
 def dict2list(data):
     result = []
@@ -47,10 +48,16 @@ class AnalyzsPoselt(BaseDataProcessor):
             data = json.load(f)
         print(f"PID[{os.getpid()}: Load json file - {json_path}")
         for idx in tqdm(data["frame_info"], colour='green', desc=f'PID[{os.getpid()}]'):
+            if idx == "cogagent_label":
+                continue
             label_count["grasp_label"][data["frame_info"][idx]["grasp_label"]] = 1
             label_count["action_stage"][data["frame_info"][idx]["action_stage"]] = 1
             # data["frame_info"][idx]["action_stage"] = "move"
         meta_info = label_count
+        cogagent_label = data["cogagent_label"]
+        meta_info.update({
+            "cogagent_label": cogagent_label
+        })
         # with open(json_path, "w") as f:
         #     json.dump(meta_info, f) #, indent=4)
         return meta_info
@@ -58,22 +65,21 @@ class AnalyzsPoselt(BaseDataProcessor):
     def process(self, meta, task_infos):
         results = []
         json_paths = []
-        json_dir_list = [name for name in os.listdir(self.dataset_root) if os.path.isdir(os.path.join(self.dataset_root, name))]
+        for dirpath, dirnames, filenames in os.walk(self.dataset_root):
+            for filename in filenames:
+                if filename.endswith("result.json"):
+                    json_paths.append(os.path.join(dirpath, filename))
         if self.pool > 1:
             args_list = []
             meta_info = []
-            for json_dir in json_dir_list:  #依次读取视频文件
-                json_path = os.path.join(json_dir, "result.json")
+            for json_path in json_paths:  #依次读取视频文件
                 args_list.append((meta_info, json_path))
             results = self.multiprocess_run(self.gen_per_meta, args_list)
         else:
             meta_info = []
-            for idx, json_dir in enumerate(json_dir_list):  #依次读取视频文件
-                filename = osp.split(json_dir)[-1]
-                json_path = os.path.join(json_dir, "result.json")
-                # save_new_filename = osp.join(self.save_root, filename)
+            for idx, json_path in enumerate(json_paths):  #依次读取视频文件
                 self.logger.info(
-                    f"Start process {idx+1}/{len(json_dir_list)}")
+                    f"Start process {idx+1}/{len(json_paths)}")
                 results.append(
                     self.gen_per_meta(meta_info, json_path))
         for meta_infos in results:
@@ -89,11 +95,28 @@ class AnalyzsPoselt(BaseDataProcessor):
             action_stage = item.get('action_stage', {})
             for key in action_stage.keys():
                 action_stage_idx[key] = 1 # tmp.get(key, 0) + 1
+        cogagent_label_idx = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+        # 统计每个 key 的 value 出现次数
+        for item in meta:
+            cogagent_label = item.get('cogagent_label', {})
+            for cam_view, subdict in cogagent_label.items():
+                for option, value in subdict.items():
+                    if isinstance(value, list):
+                        value = value[0]
+                    if "image" in value or "picture" in value or " is" in value:
+                        continue
+                    cogagent_label_idx[cam_view][option][value] = 1
+
+        # 将 defaultdict 转换为普通字典以便于打印
+        cogagent_label_idx = {k: dict(v) for k, v in cogagent_label_idx.items()}
+        cogagent_label_idx = {k: {subk: dict(subv) for subk, subv in v.items()} for k, v in cogagent_label_idx.items()}
         meta = [
             {
                 "grasp_label_idx": grasp_label_idx,
                 "action_stage_idx": action_stage_idx,
+                "cogagent_label_idx": cogagent_label_idx,
             }
         ]
+        print(meta)
         # import pdb;pdb.set_trace()
         return meta, task_infos

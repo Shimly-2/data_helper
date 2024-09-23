@@ -1,10 +1,11 @@
 task_name: &task_name poselt
 case_name: &case_name grasp_multi_objects
 workspace: &workspace /share/home/tj16023/jinyiyang/workspace/codebase/data_helper/datasets/demo_img/task_name
-dataset_root: &dataset_root /share/home/tj16023/jinyiyang/datasets/PoseIt_dataset_simplfy
+dataset_root: &dataset_root /share/home/tj16023/jinyiyang/datasets/mydataset
+# dataset_root: &dataset_root /share/home/tj16023/jinyiyang/datasets/test
 new_dataset_root: &new_dataset_root /remote-home/1950049/dataset/PoseIt_dataset_simplfy
 log_file_dir: &log_file_dir /share/home/tj16023/jinyiyang/workspace/codebase/data_helper/datasets/demo_img/task_name/log
-CPU_PER_TASK: &CPU_PER_TASK 1
+CPU_PER_TASK: &CPU_PER_TASK 4
 
 data_processor:
   # - type: GenPoseltMetaINFO
@@ -25,12 +26,43 @@ data_processor:
   #     log_file_dir: *log_file_dir
   #     multiprocess_pool: *CPU_PER_TASK
   #     dataset_root: *dataset_root
-  - type: AnalyzsPoselt
+  # - type: CalDataNum
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  # - type: AddAttrLabel
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  # - type: AnalyzsPoselt
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  # - type: FixError
+  #   kwargs:
+  #     workspace: *workspace
+  #     log_file_dir: *log_file_dir
+  #     multiprocess_pool: *CPU_PER_TASK
+  #     dataset_root: *dataset_root
+  - type: Video2VisVLaPT
     kwargs:
       workspace: *workspace
       log_file_dir: *log_file_dir
       multiprocess_pool: *CPU_PER_TASK
       dataset_root: *dataset_root
+      task_name: *task_name
+      case_name: *case_name
+      cam_views: ["fronttop", "wrist"]
+      tactile_views: ["gelsightL", "gelsightR"]
+      fps: 10
+
+
   # - type: TurnLabelPoselt
   #   kwargs:
   #     workspace: *workspace

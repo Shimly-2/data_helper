@@ -1,5 +1,5 @@
 #!/bin/bash
-# [rt1 settings]
+# bash run.sh process_conf/multi_window_split_mydataset.yaml
 export ROOT=$ROOT
 cfg=$1
 
